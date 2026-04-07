@@ -281,7 +281,7 @@ $('btn12').addEventListener('click',async()=>{
     sessionId=data.session_id;
     clearInterval(t);
     renderPreview(data.preview);
-  }catch(e){clearInterval(t);$('loadingSection').classList.remove('show');showPanel(1);$('err1').textContent=`エラー: ${e.message}`;$('err1').classList.add('show');}
+  }catch(e){clearInterval(t);$('loadingSection').classList.remove('show');showPanel(1);$('err1').textContent=e.message.includes('HTTP')?'鑑定サービスに接続できませんでした。しばらくお待ちください。':e.message;$('err1').classList.add('show');}
 });
 
 function renderPreview(raw){
@@ -305,7 +305,7 @@ $('btnStripe').addEventListener('click',async()=>{
     if(!res.ok){const e=await res.json().catch(()=>{});throw new Error(e?.detail||'error');}
     const data=await res.json();
     window.location.href=data.checkout_url;
-  }catch(e){$('btnStripe').disabled=false;$('btnStripe').textContent='カードで全文を見る 🔓';$('errPay').textContent=`エラー: ${e.message}`;$('errPay').classList.add('show');}
+  }catch(e){$('btnStripe').disabled=false;$('btnStripe').textContent='カードで全文を見る 🔓';$('errPay').textContent=e.message.includes('HTTP')?'決済の接続に失敗しました。再度お試しください。':e.message;$('errPay').classList.add('show');}
 });
 
 // 支払い完了後の処理
@@ -335,7 +335,7 @@ async function loadFullContent(){
     $('lockGate').style.display='none';$('unlockedArea').style.display='block';
     $('fullContent').innerHTML=data.full;$('fullContent').classList.add('show');
     ['dot0','dot1','dot2','dot3'].forEach(id=>{$(id).classList.add('done');$(id).classList.remove('active');});$('dot3').classList.add('active');
-  }catch(e){clearInterval(t);$('loadingSection').classList.remove('show');$('resultSection').classList.add('show');$('errPay').textContent=`全文取得エラー: ${e.message}`;$('errPay').classList.add('show');}
+  }catch(e){clearInterval(t);$('loadingSection').classList.remove('show');$('resultSection').classList.add('show');$('errPay').textContent=e.message.includes('HTTP')?'詳細鑑定の取得に失敗しました。再度お試しください。':e.message;$('errPay').classList.add('show');}
 }
 
 $('btnReset').addEventListener('click',()=>{
