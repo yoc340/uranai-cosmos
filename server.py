@@ -95,7 +95,7 @@ async def divine_preview(req: PreviewRequest):
 
     try:
         response = ai.messages.create(
-            model="claude-opus-4-5",
+            model="claude-opus-4-6",
             max_tokens=800,
             system=PREVIEW_SYSTEM,
             messages=[{"role": "user", "content": [
@@ -114,7 +114,18 @@ async def divine_preview(req: PreviewRequest):
         }
         return JSONResponse({"session_id": sid, "preview": preview_html})
     except anthropic.APIError as e:
-        raise HTTPException(502, str(e))
+        # ユーザーには技術詳細を見せず、フレンドリーなメッセージを返す
+        print(f"[divine-preview] Anthropic APIError: {e}")  # サーバーログには残す
+        if getattr(e, "status_code", 0) == 400:
+            detail = "ただいま鑑定サービスを準備中です。しばらく時間をおいてお試しください。"
+        elif getattr(e, "status_code", 0) == 429:
+            detail = "アクセスが集中しています。少し時間をおいて再度お試しください。"
+        else:
+            detail = "鑑定中にエラーが発生しました。しばらく時間をおいてお試しください。"
+        raise HTTPException(503, detail)
+    except Exception as e:
+        print(f"[divine-preview] Unexpected error: {e}")
+        raise HTTPException(500, "予期しないエラーが発生しました。しばらく時間をおいてお試しください。")
 
 
 # ────────────────────────────────────────────
@@ -154,7 +165,8 @@ async def create_checkout(req: PaymentRequest):
         store[sid]["stripe_checkout_id"] = checkout.id
         return JSONResponse({"checkout_url": checkout.url})
     except stripe.error.StripeError as e:
-        raise HTTPException(502, str(e))
+        print(f"[create-checkout] StripeError: {e}")
+        raise HTTPException(503, "決済システムに接続できませんでした。しばらく時間をおいてお試しください。")
 
 
 # ────────────────────────────────────────────
@@ -200,7 +212,7 @@ async def divine_full(req: FullRequest):
 
     try:
         response = ai.messages.create(
-            model="claude-opus-4-5",
+            model="claude-opus-4-6",
             max_tokens=2048,
             system=FULL_SYSTEM,
             messages=[{"role": "user", "content": [
@@ -211,7 +223,17 @@ async def divine_full(req: FullRequest):
         entry["full_used"] = True
         return JSONResponse({"full": response.content[0].text})
     except anthropic.APIError as e:
-        raise HTTPException(502, str(e))
+        print(f"[divine-full] Anthropic APIError: {e}")
+        if getattr(e, "status_code", 0) == 400:
+            detail = "ただいま鑑定サービスを準備中です。しばらく時間をおいてお試しください。"
+        elif getattr(e, "status_code", 0) == 429:
+            detail = "アクセスが集中しています。少し時間をおいて再度お試しください。"
+        else:
+            detail = "詳細鑑定の生成中にエラーが発生しました。しばらく時間をおいてお試しください。"
+        raise HTTPException(503, detail)
+    except Exception as e:
+        print(f"[divine-full] Unexpected error: {e}")
+        raise HTTPException(500, "予期しないエラーが発生しました。しばらく時間をおいてお試しください。")
 
 
 # ────────────────────────────────────────────
