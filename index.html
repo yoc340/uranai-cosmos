@@ -314,6 +314,9 @@ $('btnStripe').addEventListener('click',async()=>{
   if(params.get('unlocked')==='1'&&params.get('sid')){
     sessionId=params.get('sid');
     history.replaceState(null,'','/');
+    // 入力パネルを非表示にする
+    $('panel0').classList.remove('show');
+    $('panel1').classList.remove('show');
     // まずプレビュー結果を復元表示
     try{
       const pRes=await fetch('/get-preview/'+sessionId);
