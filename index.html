@@ -314,8 +314,22 @@ $('btnStripe').addEventListener('click',async()=>{
   if(params.get('unlocked')==='1'&&params.get('sid')){
     sessionId=params.get('sid');
     history.replaceState(null,'','/');
+    // まずプレビュー結果を復元表示
+    try{
+      const pRes=await fetch('/get-preview/'+sessionId);
+      if(pRes.ok){
+        const pData=await pRes.json();
+        if(pData.preview){
+          renderPreview(pData.preview);
+          if(pData.name)$('resultName').textContent=pData.name+'さんの鑑定結果';
+        }
+      }
+    }catch(e){console.log('preview restore failed',e);}
+    // 全文鑑定を取得
     await loadFullContent();
   }else if(params.get('cancelled')){
+    history.replaceState(null,'','/');
+  }else if(params.get('error')){
     history.replaceState(null,'','/');
   }
 })();

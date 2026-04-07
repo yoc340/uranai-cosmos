@@ -221,6 +221,20 @@ async def create_checkout(req: PaymentRequest):
 # ────────────────────────────────────────────
 # Step3: 支払い完了リダイレクト
 # ────────────────────────────────────────────
+
+# セッションのプレビュー結果を返す（決済後の画面復元用）
+@app.get("/get-preview/{sid}")
+async def get_preview(sid: str):
+    entry = get_session(sid)
+    if not entry:
+        raise HTTPException(404, "セッションが見つかりません。")
+    return JSONResponse({
+        "preview": entry.get("preview_html", ""),
+        "name":    entry.get("payload", {}).get("name", ""),
+        "status":  entry.get("status", "PENDING"),
+    })
+
+
 @app.get("/payment-complete")
 async def payment_complete(sid: str, stripe_session: str = ""):
     entry = get_session(sid)
@@ -274,7 +288,7 @@ async def divine_full(req: FullRequest):
     try:
         response = ai.messages.create(
             model="claude-opus-4-6",
-            max_tokens=3000,
+            max_tokens=4000,
             system=FULL_SYSTEM,
             messages=[{"role": "user", "content": [
                 {"type": "image", "source": {"type": "base64", "media_type": d["image_type"], "data": d["image_b64"]}},
