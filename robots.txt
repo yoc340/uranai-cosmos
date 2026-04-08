@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://uranai-cosmos.onrender.com/sitemap.xml
