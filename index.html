@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>URANAI COSMOS | 総合AI占い鑑定</title>
+<title>URANAI COSMOS | AI総合占い鑑定 - 手相・星座・九星・数秘術・血液型</title>
+<meta name="description" content="手相・西洋占星術・九星気学・数秘術・血液型の5つの占術をAIが統合分析。手のひらの写真をアップロードするだけで、あなただけの総合鑑定をお届けします。完全無料。">
+<meta property="og:title" content="URANAI COSMOS | AI総合占い鑑定">
+<meta property="og:description" content="5つの占術をAIが統合分析。手のひらの写真で、あなただけの総合鑑定を無料でお届け。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://uranai-cosmos.onrender.com">
+<link rel="canonical" href="https://uranai-cosmos.onrender.com">
+<!-- Google AdSense（審査通過後に data-ad-client を設定） -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Cinzel:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0b0c14;--surface:rgba(255,255,255,0.03);--border:rgba(180,160,255,0.15);--accent:#a78bfa;--accent2:#f0c070;--accent3:#7dd3c8;--text:#e8e4f0;--muted:rgba(232,228,240,0.45);--glow:rgba(167,139,250,0.2);}
@@ -57,20 +65,6 @@ main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:48px 20px
 .btn-secondary::before{background:rgba(255,255,255,0.05);}
 .btn-secondary:hover{color:var(--text);}
 
-/* Stripeボタン */
-.btn-stripe{border-color:#635bff;color:#635bff;font-size:1rem;padding:16px 48px;letter-spacing:0.2em;}
-.btn-stripe::before{background:linear-gradient(135deg,#635bff,#4f46e5);}
-
-/* 決済ボックス */
-.payment-box{border:1px solid rgba(99,91,255,0.3);padding:32px;text-align:center;background:rgba(99,91,255,0.04);border-radius:2px;margin-bottom:20px;}
-.payment-icon{font-size:2rem;margin-bottom:12px;display:block;}
-.payment-price{font-family:'Cinzel',serif;font-size:2.2rem;color:#635bff;margin-bottom:8px;}
-.payment-desc{font-size:0.8rem;color:var(--muted);letter-spacing:0.1em;line-height:1.8;margin-bottom:20px;}
-.payment-items{font-size:0.72rem;color:var(--muted);letter-spacing:0.1em;margin-bottom:24px;line-height:2;border:1px solid var(--border);padding:12px;border-radius:2px;text-align:left;}
-.payment-items li{list-style:none;padding:2px 0;}
-.payment-items li::before{content:'✦ ';color:var(--accent2);font-size:0.6rem;}
-.secure-badge{font-size:0.68rem;color:var(--muted);margin-top:12px;letter-spacing:0.1em;}
-
 .loading{display:none;text-align:center;padding:60px 0;}
 .loading.show{display:block;}
 .cosmos{width:80px;height:80px;margin:0 auto 24px;position:relative;}
@@ -103,28 +97,27 @@ main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:48px 20px
 .corner{position:absolute;width:14px;height:14px;border-color:var(--accent);border-style:solid;opacity:0.4;}
 .c-tl{top:-1px;left:-1px;border-width:1px 0 0 1px;}.c-tr{top:-1px;right:-1px;border-width:1px 1px 0 0;}
 .c-bl{bottom:-1px;left:-1px;border-width:0 0 1px 1px;}.c-br{bottom:-1px;right:-1px;border-width:0 1px 1px 0;}
-.reading-box h3,.full-content h3{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--accent2);letter-spacing:0.15em;margin:24px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(167,139,250,0.15);}
-.reading-box h3:first-child,.full-content h3:first-child{margin-top:0;}
-.reading-box p,.full-content p{font-size:0.88rem;line-height:2;color:rgba(232,228,240,0.85);margin-bottom:10px;}
+.reading-box h3{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--accent2);letter-spacing:0.15em;margin:24px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(167,139,250,0.15);}
+.reading-box h3:first-child{margin-top:0;}
+.reading-box p{font-size:0.88rem;line-height:2;color:rgba(232,228,240,0.85);margin-bottom:10px;}
 
-/* ロックゲート */
-.lock-gate{position:relative;margin-top:24px;border:1px solid rgba(99,91,255,0.3);border-radius:2px;overflow:hidden;}
-.lock-blur{padding:28px;background:var(--surface);filter:blur(6px);user-select:none;pointer-events:none;font-size:0.88rem;line-height:2;color:rgba(232,228,240,0.6);max-height:160px;overflow:hidden;}
-.lock-banner{position:relative;z-index:2;text-align:center;padding:32px 24px;background:linear-gradient(180deg,rgba(11,12,20,0.7) 0%,var(--bg) 100%);border-top:1px solid rgba(99,91,255,0.2);}
-.lock-icon{font-size:2rem;margin-bottom:12px;display:block;}
-.lock-title{font-family:'Shippori Mincho',serif;font-size:1.1rem;color:#635bff;letter-spacing:0.2em;margin-bottom:16px;}
-.lock-price{font-family:'Cinzel',serif;font-size:2rem;color:#635bff;margin-bottom:8px;}
-.lock-desc{font-size:0.78rem;color:var(--muted);letter-spacing:0.1em;line-height:1.8;margin-bottom:8px;}
-.lock-items{font-size:0.72rem;color:var(--muted);letter-spacing:0.05em;margin-bottom:20px;line-height:2.2;}
+/* 広告枠 */
+.ad-slot{border:1px solid var(--border);padding:20px;text-align:center;background:var(--surface);border-radius:2px;margin:24px 0;min-height:100px;}
+.ad-slot-label{font-size:0.6rem;letter-spacing:0.2em;color:rgba(232,228,240,0.15);margin-bottom:8px;}
 
-.unlocked-badge{text-align:center;padding:16px;background:rgba(125,211,200,0.08);border-bottom:1px solid rgba(125,211,200,0.2);font-size:0.75rem;letter-spacing:0.25em;color:var(--accent3);}
-.full-content{display:none;padding:28px;animation:panelIn 0.8s ease;}
-.full-content.show{display:block;}
+/* シェアボタン */
+.share-section{text-align:center;margin:28px 0;padding:20px;border:1px solid var(--border);border-radius:2px;background:var(--surface);}
+.share-title{font-family:'Shippori Mincho',serif;font-size:0.85rem;color:var(--muted);letter-spacing:0.2em;margin-bottom:14px;}
+.share-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.share-btn{display:inline-block;padding:10px 24px;border-radius:2px;font-size:0.75rem;letter-spacing:0.1em;text-decoration:none;color:#fff;transition:opacity 0.3s;}
+.share-btn:hover{opacity:0.8;}
+.share-btn.x{background:#000;}
+.share-btn.line{background:#06C755;}
 
 .error{display:none;color:#f87171;font-size:0.78rem;letter-spacing:0.15em;text-align:center;margin-top:12px;}
 .error.show{display:block;}
 footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px solid var(--border);font-size:0.65rem;letter-spacing:0.2em;color:rgba(232,228,240,0.18);}
-@media(max-width:480px){.oracle-grid{grid-template-columns:repeat(3,1fr);}.score-grid{grid-template-columns:1fr;}.field-row{grid-template-columns:1fr;}.reading-box,.full-content{padding:20px 16px;}}
+@media(max-width:480px){.oracle-grid{grid-template-columns:repeat(3,1fr);}.score-grid{grid-template-columns:1fr;}.field-row{grid-template-columns:1fr;}.reading-box{padding:20px 16px;}}
 </style>
 </head>
 <body>
@@ -133,20 +126,19 @@ footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px
   <div class="logo">URANAI COSMOS</div>
   <div class="logo-ja">宇占 ── AI総合鑑定</div>
   <div class="tagline">Five arts. One destiny.</div>
-  <div class="div-line"><span class="div-dot">✦</span></div>
+  <div class="div-line"><span class="div-dot">&#10022;</span></div>
 </header>
 <main>
   <div class="step-indicator">
     <div class="step-dot active" id="dot0"></div>
     <div class="step-dot" id="dot1"></div>
     <div class="step-dot" id="dot2"></div>
-    <div class="step-dot" id="dot3"></div>
   </div>
 
   <!-- Panel 0: Profile -->
   <div class="panel show" id="panel0">
     <div class="panel-title">あなたのことを教えてください</div>
-    <div class="panel-sub">PROFILE · STEP 1 OF 4</div>
+    <div class="panel-sub">PROFILE &#183; STEP 1</div>
     <div class="field"><label>お名前（ニックネーム可）</label><input type="text" id="inName" placeholder="例：花子"></div>
     <div class="field-row">
       <div class="field"><label>生年月日</label><input type="date" id="inBirth"></div>
@@ -160,17 +152,17 @@ footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px
   <!-- Panel 1: Palm -->
   <div class="panel" id="panel1">
     <div class="panel-title">手のひらを撮影してください</div>
-    <div class="panel-sub">PALM PHOTO · STEP 2 OF 4</div>
+    <div class="panel-sub">PALM PHOTO &#183; STEP 2</div>
     <div class="upload-zone" id="uploadZone">
-      <span class="upload-icon">🤚</span>
+      <span class="upload-icon">&#x1F91A;</span>
       <div class="upload-text">写真をアップロード</div>
-      <div class="upload-hint">PNG / JPG · タップまたはドラッグ&ドロップ</div>
+      <div class="upload-hint">PNG / JPG &#183; タップまたはドラッグ&amp;ドロップ</div>
       <input type="file" id="fileInput" accept="image/*">
     </div>
     <div class="preview-wrap" id="previewWrap"><div class="preview-frame"><img id="previewImg" alt="手相"></div></div>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
-      <button class="btn btn-secondary" id="btn10">← 戻る</button>
-      <button class="btn" id="btn12" disabled>無料で鑑定を見る</button>
+      <button class="btn btn-secondary" id="btn10">&larr; 戻る</button>
+      <button class="btn" id="btn12" disabled>無料で鑑定する</button>
     </div>
     <div class="error" id="err1"></div>
   </div>
@@ -187,52 +179,48 @@ footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px
     <div class="result-hero">
       <div class="panel-sub">READING</div>
       <div class="result-name" id="resultName">鑑定結果</div>
-      <div class="div-line"><span class="div-dot">✦</span></div>
+      <div class="div-line"><span class="div-dot">&#10022;</span></div>
     </div>
     <div class="oracle-grid">
-      <div class="oracle-card"><span class="oc-icon">🤚</span><span>手相</span></div>
-      <div class="oracle-card"><span class="oc-icon">⭐</span><span>星座</span></div>
-      <div class="oracle-card"><span class="oc-icon">🌿</span><span>九星</span></div>
-      <div class="oracle-card"><span class="oc-icon">🔢</span><span>数秘術</span></div>
-      <div class="oracle-card"><span class="oc-icon">🩸</span><span>血液型</span></div>
+      <div class="oracle-card"><span class="oc-icon">&#x1F91A;</span><span>手相</span></div>
+      <div class="oracle-card"><span class="oc-icon">&#x2B50;</span><span>星座</span></div>
+      <div class="oracle-card"><span class="oc-icon">&#x1F33F;</span><span>九星</span></div>
+      <div class="oracle-card"><span class="oc-icon">&#x1F522;</span><span>数秘術</span></div>
+      <div class="oracle-card"><span class="oc-icon">&#x1FA78;</span><span>血液型</span></div>
     </div>
     <div class="score-grid" id="scoreGrid" style="display:none">
-      <div class="score-item"><div class="score-label">総合運</div><div class="score-bar-wrap"><div class="score-bar" id="sb0" style="width:0%"></div></div><div class="score-val" id="sv0">–</div></div>
-      <div class="score-item"><div class="score-label">恋愛運</div><div class="score-bar-wrap"><div class="score-bar" id="sb1" style="width:0%"></div></div><div class="score-val" id="sv1">–</div></div>
-      <div class="score-item"><div class="score-label">仕事運</div><div class="score-bar-wrap"><div class="score-bar" id="sb2" style="width:0%"></div></div><div class="score-val" id="sv2">–</div></div>
-      <div class="score-item"><div class="score-label">金運</div><div class="score-bar-wrap"><div class="score-bar" id="sb3" style="width:0%"></div></div><div class="score-val" id="sv3">–</div></div>
+      <div class="score-item"><div class="score-label">総合運</div><div class="score-bar-wrap"><div class="score-bar" id="sb0" style="width:0%"></div></div><div class="score-val" id="sv0">&ndash;</div></div>
+      <div class="score-item"><div class="score-label">恋愛運</div><div class="score-bar-wrap"><div class="score-bar" id="sb1" style="width:0%"></div></div><div class="score-val" id="sv1">&ndash;</div></div>
+      <div class="score-item"><div class="score-label">仕事運</div><div class="score-bar-wrap"><div class="score-bar" id="sb2" style="width:0%"></div></div><div class="score-val" id="sv2">&ndash;</div></div>
+      <div class="score-item"><div class="score-label">金運</div><div class="score-bar-wrap"><div class="score-bar" id="sb3" style="width:0%"></div></div><div class="score-val" id="sv3">&ndash;</div></div>
     </div>
 
-    <!-- 無料プレビュー -->
+    <!-- 鑑定結果 -->
     <div class="reading-box">
       <span class="corner c-tl"></span><span class="corner c-tr"></span>
       <span class="corner c-bl"></span><span class="corner c-br"></span>
-      <div id="previewContent"></div>
+      <div id="readingContent"></div>
     </div>
 
-    <!-- ロックゲート -->
-    <div class="lock-gate" id="lockGate">
-      <div class="lock-blur">手相の線はあなたの人生の地図。生命線が示す活力と、感情線が語る愛の深さが交差するとき、真の運命が見えてきます。星座と九星気学が示す使命とは何か、数秘術が解き明かすあなたの本質的な才能——これらすべてが今、明かされようとしています。</div>
-      <div class="lock-banner">
-        <span class="lock-icon">🔒</span>
-        <div class="lock-title">詳細鑑定を解放する</div>
-        <div class="lock-items">
-          ✦ 手相の詳細分析 &nbsp; ✦ 星座と九星気学の運命<br>
-          ✦ 数秘術・血液型の本質 &nbsp; ✦ 恋愛・対人運<br>
-          ✦ 仕事・金運 &nbsp; ✦ 今後のアドバイス
-        </div>
-        <div class="lock-price">¥300</div>
-        <div class="lock-desc">クレジットカードで安全にお支払いいただけます</div>
-        <button class="btn btn-stripe" id="btnStripe">カードで全文を見る 🔓</button>
-        <div class="secure-badge">🔒 Stripe による安全な決済 · SSL暗号化</div>
-        <div class="error" id="errPay" style="margin-top:12px;"></div>
+    <!-- 広告枠1: 鑑定結果の下 -->
+    <div class="ad-slot" id="adSlot1">
+      <div class="ad-slot-label">AD</div>
+      <!-- AdSense審査通過後にここにコードを挿入 -->
+    </div>
+
+    <!-- シェアボタン -->
+    <div class="share-section">
+      <div class="share-title">鑑定結果をシェアする</div>
+      <div class="share-buttons">
+        <a class="share-btn x" id="shareX" href="#" target="_blank">X でシェア</a>
+        <a class="share-btn line" id="shareLine" href="#" target="_blank">LINE でシェア</a>
       </div>
     </div>
 
-    <!-- アンロック後 -->
-    <div id="unlockedArea" style="display:none">
-      <div class="unlocked-badge">✦ 全文解放済み ✦</div>
-      <div class="full-content" id="fullContent"></div>
+    <!-- 広告枠2: シェアボタンの下 -->
+    <div class="ad-slot" id="adSlot2">
+      <div class="ad-slot-label">AD</div>
+      <!-- AdSense審査通過後にここにコードを挿入 -->
     </div>
 
     <div style="text-align:center;margin-top:28px;">
@@ -240,15 +228,15 @@ footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px
     </div>
   </div>
 </main>
-<footer>© URANAI COSMOS — 本鑑定は娯楽目的であり、科学的根拠に基づくものではありません</footer>
+<footer>&copy; URANAI COSMOS &mdash; 本鑑定はAIによる娯楽目的であり、科学的根拠に基づくものではありません</footer>
 
 <script>
-(function(){const c=document.getElementById('stars');for(let i=0;i<80;i++){const s=document.createElement('div');s.className='star';s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:${Math.random()*4}s;opacity:${0.1+Math.random()*0.5}`;c.appendChild(s);}})();
+(function(){const c=document.getElementById('stars');for(let i=0;i<80;i++){const s=document.createElement('div');s.className='star';s.style.cssText='left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--d:'+(2+Math.random()*4)+'s;--delay:'+Math.random()*4+'s;opacity:'+(0.1+Math.random()*0.5);c.appendChild(s);}})();
 
 const $=id=>document.getElementById(id);
-let selectedFile=null,sessionId=null;
+let selectedFile=null;
 
-function showPanel(n){['panel0','panel1'].forEach((id,i)=>$(id).classList.toggle('show',i===n));['dot0','dot1','dot2','dot3'].forEach((id,i)=>{$(id).classList.toggle('active',i===n);$(id).classList.toggle('done',i<n);});}
+function showPanel(n){['panel0','panel1'].forEach((id,i)=>$(id).classList.toggle('show',i===n));['dot0','dot1','dot2'].forEach((id,i)=>{$(id).classList.toggle('active',i===n);$(id).classList.toggle('done',i<n);});}
 
 $('btn01').addEventListener('click',()=>{$('err0').classList.remove('show');if(!$('inName').value||!$('inBirth').value||!$('inBlood').value){$('err0').classList.add('show');return;}showPanel(1);});
 
@@ -262,106 +250,61 @@ function setFile(f){selectedFile=f;const r=new FileReader();r.onload=e=>{$('prev
 
 $('btn10').addEventListener('click',()=>showPanel(0));
 
-// 無料プレビュー
+// 鑑定実行
 $('btn12').addEventListener('click',async()=>{
   if(!selectedFile)return;
   $('err1').classList.remove('show');
   $('panel1').classList.remove('show');
   $('loadingSection').classList.add('show');
   $('loadingText').textContent='鑑定しています';
-  const steps=['手相を分析中...','占術を統合中...','鑑定結果を生成中...'];
-  let si=0;const t=setInterval(()=>{si=(si+1)%steps.length;$('loadingStep').textContent=steps[si];},2000);
+  const steps=['手相を分析中...','占術を統合中...','鑑定結果を生成中...','星座と九星を解読中...','アドバイスを生成中...'];
+  let si=0;const t=setInterval(()=>{si=(si+1)%steps.length;$('loadingStep').textContent=steps[si];},2500);
   const birth=$('inBirth').value;
   const b64=await toB64(selectedFile);
-  const body={name:$('inName').value,birth,blood:$('inBlood').value,gender:$('inGender').value||'不明',zodiac:getZodiac(birth),kyusei:getKyusei(birth),numerology:getNumerology(birth),image_b64:b64,image_type:selectedFile.type||'image/jpeg'};
+  const body={name:$('inName').value,birth:birth,blood:$('inBlood').value,gender:$('inGender').value||'不明',zodiac:getZodiac(birth),kyusei:getKyusei(birth),numerology:getNumerology(birth),image_b64:b64,image_type:selectedFile.type||'image/jpeg'};
   try{
-    const res=await fetch('/divine-preview',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-    if(!res.ok){const e=await res.json().catch(()=>{});throw new Error(e?.detail||`HTTP ${res.status}`);}
+    const res=await fetch('/divine',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    if(!res.ok){const e=await res.json().catch(()=>{});throw new Error(e?.detail||'サーバーエラーが発生しました');}
     const data=await res.json();
-    sessionId=data.session_id;
     clearInterval(t);
-    renderPreview(data.preview);
-  }catch(e){clearInterval(t);$('loadingSection').classList.remove('show');showPanel(1);$('err1').textContent=e.message.includes('HTTP')?'鑑定サービスに接続できませんでした。しばらくお待ちください。':e.message;$('err1').classList.add('show');}
+    renderResult(data.result);
+  }catch(e){clearInterval(t);$('loadingSection').classList.remove('show');showPanel(1);$('err1').textContent=e.message;$('err1').classList.add('show');}
 });
 
-function renderPreview(raw){
+function renderResult(raw){
   $('loadingSection').classList.remove('show');
   let html=raw;
+  // スコアを抽出
   const m=raw.match(/SCORES:\{([^}]+)\}/);
-  if(m){html=raw.replace(/SCORES:\{[^}]+\}\n?/,'');try{const sc=JSON.parse('{'+m[1]+'}');['総合','恋愛','仕事','金運'].forEach((k,i)=>{const v=sc[k]||70;$('scoreGrid').style.display='grid';setTimeout(()=>{$('sb'+i).style.width=v+'%';$('sv'+i).textContent=v+'/100';},300+i*150);});}catch(e){}}
-  $('resultName').textContent=($('inName').value||'あなた')+'さんの鑑定結果';
-  $('previewContent').innerHTML=html;
-  $('resultSection').classList.add('show');
-  $('dot1').classList.add('done');$('dot2').classList.add('active');
-}
-
-// Stripe決済
-$('btnStripe').addEventListener('click',async()=>{
-  if(!sessionId)return;
-  $('errPay').classList.remove('show');
-  $('btnStripe').disabled=true;$('btnStripe').textContent='処理中...';
-  try{
-    const res=await fetch('/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:sessionId})});
-    if(!res.ok){const e=await res.json().catch(()=>{});throw new Error(e?.detail||'error');}
-    const data=await res.json();
-    window.location.href=data.checkout_url;
-  }catch(e){$('btnStripe').disabled=false;$('btnStripe').textContent='カードで全文を見る 🔓';$('errPay').textContent=e.message.includes('HTTP')?'決済の接続に失敗しました。再度お試しください。':e.message;$('errPay').classList.add('show');}
-});
-
-// 支払い完了後の処理
-(async function(){
-  const params=new URLSearchParams(location.search);
-  if(params.get('unlocked')==='1'&&params.get('sid')){
-    sessionId=params.get('sid');
-    history.replaceState(null,'','/');
-    // 入力パネルを非表示にする
-    $('panel0').classList.remove('show');
-    $('panel1').classList.remove('show');
-    // まずプレビュー結果を復元表示
+  if(m){
+    html=raw.replace(/SCORES:\{[^}]+\}\n?/,'');
     try{
-      const pRes=await fetch('/get-preview/'+sessionId);
-      if(pRes.ok){
-        const pData=await pRes.json();
-        if(pData.preview){
-          renderPreview(pData.preview);
-          if(pData.name)$('resultName').textContent=pData.name+'さんの鑑定結果';
-        }
-      }
-    }catch(e){console.log('preview restore failed',e);}
-    // 全文鑑定を取得
-    await loadFullContent();
-  }else if(params.get('cancelled')){
-    history.replaceState(null,'','/');
-  }else if(params.get('error')){
-    history.replaceState(null,'','/');
+      const sc=JSON.parse('{'+m[1]+'}');
+      ['総合','恋愛','仕事','金運'].forEach((k,i)=>{
+        const v=sc[k]||70;
+        $('scoreGrid').style.display='grid';
+        setTimeout(()=>{$('sb'+i).style.width=v+'%';$('sv'+i).textContent=v+'/100';},300+i*150);
+      });
+    }catch(e){}
   }
-})();
+  $('resultName').textContent=($('inName').value||'あなた')+'さんの鑑定結果';
+  $('readingContent').innerHTML=html;
+  $('resultSection').classList.add('show');
+  ['dot0','dot1'].forEach(id=>$(id).classList.add('done'));
+  $('dot2').classList.add('active');
 
-async function loadFullContent(){
-  $('loadingText').textContent='詳細鑑定を生成しています';
-  $('loadingStep').textContent='残りのセクションを解読中...';
-  $('loadingSection').classList.add('show');$('resultSection').classList.remove('show');
-  const steps=['手相の詳細を分析中...','恋愛運・仕事運を解読中...','アドバイスを生成中...'];
-  let si=0;const t=setInterval(()=>{si=(si+1)%steps.length;$('loadingStep').textContent=steps[si];},2000);
-  try{
-    const res=await fetch('/divine-full',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:sessionId})});
-    if(!res.ok){const e=await res.json().catch(()=>{});throw new Error(e?.detail||`HTTP ${res.status}`);}
-    const data=await res.json();
-    clearInterval(t);
-    $('loadingSection').classList.remove('show');$('resultSection').classList.add('show');
-    $('lockGate').style.display='none';$('unlockedArea').style.display='block';
-    $('fullContent').innerHTML=data.full;$('fullContent').classList.add('show');
-    ['dot0','dot1','dot2','dot3'].forEach(id=>{$(id).classList.add('done');$(id).classList.remove('active');});$('dot3').classList.add('active');
-  }catch(e){clearInterval(t);$('loadingSection').classList.remove('show');$('resultSection').classList.add('show');$('errPay').textContent=e.message.includes('HTTP')?'詳細鑑定の取得に失敗しました。再度お試しください。':e.message;$('errPay').classList.add('show');}
+  // シェアリンク設定
+  const shareText='URANAI COSMOSでAI総合占い鑑定をしてもらいました！5つの占術を統合した無料鑑定、ぜひ試してみてください ✨';
+  const shareUrl='https://uranai-cosmos.onrender.com';
+  $('shareX').href='https://x.com/intent/tweet?text='+encodeURIComponent(shareText)+'&url='+encodeURIComponent(shareUrl);
+  $('shareLine').href='https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(shareUrl)+'&text='+encodeURIComponent(shareText);
 }
 
 $('btnReset').addEventListener('click',()=>{
-  selectedFile=null;sessionId=null;fi.value='';$('previewImg').src='';$('previewWrap').classList.remove('show');$('btn12').disabled=true;
-  $('resultSection').classList.remove('show');$('scoreGrid').style.display='none';$('previewContent').innerHTML='';$('fullContent').innerHTML='';
-  $('lockGate').style.display='';$('unlockedArea').style.display='none';$('fullContent').classList.remove('show');
-  $('btnStripe').disabled=false;$('btnStripe').textContent='カードで全文を見る 🔓';
+  selectedFile=null;fi.value='';$('previewImg').src='';$('previewWrap').classList.remove('show');$('btn12').disabled=true;
+  $('resultSection').classList.remove('show');$('scoreGrid').style.display='none';$('readingContent').innerHTML='';
   $('inName').value='';$('inBirth').value='';$('inBlood').value='';$('inGender').value='';
-  ['dot0','dot1','dot2','dot3'].forEach((id,i)=>{$(id).classList.toggle('active',i===0);$(id).classList.remove('done');});
+  ['dot0','dot1','dot2'].forEach((id,i)=>{$(id).classList.toggle('active',i===0);$(id).classList.remove('done');});
   showPanel(0);
 });
 
