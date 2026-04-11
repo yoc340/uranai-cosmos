@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>URANAI COSMOS | AI総合占い鑑定 - 手相・星座・九星・数秘術・血液型</title>
+<title>URANAI COSMOS | 完全無料AI総合占い鑑定 - 手相・星座・九星・四柱推命・数秘術・血液型・姓名判断</title>
 <meta name="google-site-verification" content="xTQxWypBSjoZtM_wA4dHTiOwEAvsEx8RHxfM6WV5M3Q" />
-<meta name="description" content="手相・西洋占星術・九星気学・数秘術・血液型の5つの占術をAIが統合分析。手のひらの写真をアップロードするだけで、あなただけの総合鑑定をお届けします。完全無料。">
-<meta property="og:title" content="URANAI COSMOS | AI総合占い鑑定">
-<meta property="og:description" content="5つの占術をAIが統合分析。手のひらの写真で、あなただけの総合鑑定を無料でお届け。">
+<meta name="description" content="【完全無料】手相・西洋占星術・九星気学・四柱推命・数秘術・血液型・姓名判断の7つの占術をAIが統合分析。手のひらの写真をアップロードするだけで、あなただけの総合鑑定をお届けします。">
+<meta property="og:title" content="URANAI COSMOS | 完全無料AI総合占い鑑定">
+<meta property="og:description" content="【完全無料】7つの占術をAIが統合分析。手のひらの写真で、あなただけの総合鑑定をお届け。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://uranai-cosmos.onrender.com">
 <link rel="canonical" href="https://uranai-cosmos.onrender.com">
@@ -87,7 +87,7 @@ main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:48px 20px
 .result-section.show{display:block;}
 .result-hero{text-align:center;margin-bottom:36px;}
 .result-name{font-family:'Cinzel',serif;font-size:1.8rem;font-weight:300;letter-spacing:0.3em;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.oracle-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:24px;}
+.oracle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:10px;margin-bottom:24px;}
 .oracle-card{border:1px solid var(--border);padding:14px 8px;text-align:center;border-radius:2px;background:var(--surface);font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);}
 .oracle-card .oc-icon{font-size:1.4rem;display:block;margin-bottom:6px;}
 .score-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:24px 0;}
@@ -121,7 +121,7 @@ main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:48px 20px
 .error{display:none;color:#f87171;font-size:0.78rem;letter-spacing:0.15em;text-align:center;margin-top:12px;}
 .error.show{display:block;}
 footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px solid var(--border);font-size:0.65rem;letter-spacing:0.2em;color:rgba(232,228,240,0.18);}
-@media(max-width:480px){.oracle-grid{grid-template-columns:repeat(3,1fr);}.score-grid{grid-template-columns:1fr;}.field-row{grid-template-columns:1fr;}.reading-box{padding:20px 16px;}}
+@media(max-width:480px){.score-grid{grid-template-columns:1fr;}.field-row{grid-template-columns:1fr;}.reading-box{padding:20px 16px;}}
 </style>
 </head>
 <body>
@@ -148,7 +148,11 @@ footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px
       <div class="field"><label>生年月日</label><input type="date" id="inBirth"></div>
       <div class="field"><label>血液型</label><select id="inBlood"><option value="">選択</option><option value="A">A型</option><option value="B">B型</option><option value="O">O型</option><option value="AB">AB型</option></select></div>
     </div>
-    <div class="field"><label>性別</label><select id="inGender"><option value="">選択</option><option value="男性">男性</option><option value="女性">女性</option><option value="その他">その他</option></select></div>
+    <div class="field-row">
+      <div class="field"><label>性別</label><select id="inGender"><option value="">選択</option><option value="男性">男性</option><option value="女性">女性</option><option value="その他">その他</option></select></div>
+      <div class="field"><label>生まれた時間（四柱推命用）</label><select id="inHour"><option value="不明">不明</option><option value="23:00-01:00">23:00-01:00（子の刻）</option><option value="01:00-03:00">01:00-03:00（丑の刻）</option><option value="03:00-05:00">03:00-05:00（寅の刻）</option><option value="05:00-07:00">05:00-07:00（卯の刻）</option><option value="07:00-09:00">07:00-09:00（辰の刻）</option><option value="09:00-11:00">09:00-11:00（巳の刻）</option><option value="11:00-13:00">11:00-13:00（午の刻）</option><option value="13:00-15:00">13:00-15:00（未の刻）</option><option value="15:00-17:00">15:00-17:00（申の刻）</option><option value="17:00-19:00">17:00-19:00（酉の刻）</option><option value="19:00-21:00">19:00-21:00（戌の刻）</option><option value="21:00-23:00">21:00-23:00（亥の刻）</option></select></div>
+    </div>
+    <div class="field"><label>本名（姓名判断用・任意）</label><input type="text" id="inRealName" placeholder="例：山田 花子（入力すると姓名判断も鑑定します）"></div>
     <div class="btn-center" style="text-align:center;margin-top:28px;"><button class="btn" id="btn01">次へ ── 手相を撮影</button></div>
     <div class="error" id="err0">名前・生年月日・血液型を入力してください</div>
   </div>
@@ -176,6 +180,7 @@ footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px
     <div class="cosmos"><div class="cosmos-ring"></div><div class="cosmos-ring"></div><div class="cosmos-ring"></div><div class="cosmos-core"></div></div>
     <div class="loading-text" id="loadingText">鑑定しています</div>
     <div class="loading-sub" id="loadingStep">手相を分析中...</div>
+    <div class="loading-sub" id="loadingNote" style="margin-top:16px;opacity:0;transition:opacity 0.5s;"></div>
   </div>
 
   <!-- Result -->
@@ -191,6 +196,8 @@ footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px
       <div class="oracle-card"><span class="oc-icon">&#x1F33F;</span><span>九星</span></div>
       <div class="oracle-card"><span class="oc-icon">&#x1F522;</span><span>数秘術</span></div>
       <div class="oracle-card"><span class="oc-icon">&#x1FA78;</span><span>血液型</span></div>
+      <div class="oracle-card"><span class="oc-icon">&#x1F300;</span><span>四柱推命</span></div>
+      <div class="oracle-card" id="cardSeimei" style="display:none"><span class="oc-icon">&#x1F4DC;</span><span>姓名判断</span></div>
     </div>
     <div class="score-grid" id="scoreGrid" style="display:none">
       <div class="score-item"><div class="score-label">総合運</div><div class="score-bar-wrap"><div class="score-bar" id="sb0" style="width:0%"></div></div><div class="score-val" id="sv0">&ndash;</div></div>
@@ -239,6 +246,10 @@ footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px
 
 const $=id=>document.getElementById(id);
 let selectedFile=null;
+let serverReady=false;
+
+// ページ読み込み時にサーバーをウォームアップ
+fetch('/').then(()=>{serverReady=true;}).catch(()=>{});
 
 function showPanel(n){['panel0','panel1'].forEach((id,i)=>$(id).classList.toggle('show',i===n));['dot0','dot1','dot2'].forEach((id,i)=>{$(id).classList.toggle('active',i===n);$(id).classList.toggle('done',i<n);});}
 
@@ -261,18 +272,26 @@ $('btn12').addEventListener('click',async()=>{
   $('panel1').classList.remove('show');
   $('loadingSection').classList.add('show');
   $('loadingText').textContent='鑑定しています';
+  $('loadingNote').style.opacity='0';$('loadingNote').textContent='';
   const steps=['手相を分析中...','占術を統合中...','鑑定結果を生成中...','星座と九星を解読中...','アドバイスを生成中...'];
   let si=0;const t=setInterval(()=>{si=(si+1)%steps.length;$('loadingStep').textContent=steps[si];},2500);
+  // 10秒後に「少しお時間をいただいています」と表示
+  const noteTimer1=setTimeout(()=>{$('loadingNote').textContent='初回アクセス時はお時間をいただく場合があります';$('loadingNote').style.opacity='1';},10000);
+  // 30秒後にメッセージ更新
+  const noteTimer2=setTimeout(()=>{$('loadingNote').textContent='サーバーを準備中です。もうしばらくお待ちください';},30000);
   const birth=$('inBirth').value;
   const b64=await toB64(selectedFile);
-  const body={name:$('inName').value,birth:birth,blood:$('inBlood').value,gender:$('inGender').value||'不明',zodiac:getZodiac(birth),kyusei:getKyusei(birth),numerology:getNumerology(birth),image_b64:b64,image_type:selectedFile.type||'image/jpeg'};
+  const realName=$('inRealName').value.trim();
+  const body={name:$('inName').value,birth:birth,blood:$('inBlood').value,gender:$('inGender').value||'不明',zodiac:getZodiac(birth),kyusei:getKyusei(birth),numerology:getNumerology(birth),birth_hour:$('inHour').value,real_name:realName,image_b64:b64,image_type:selectedFile.type||'image/jpeg'};
+  // 姓名判断カードの表示
+  if(realName){$('cardSeimei').style.display='';}else{$('cardSeimei').style.display='none';}
   try{
     const res=await fetch('/divine',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     if(!res.ok){const e=await res.json().catch(()=>{});throw new Error(e?.detail||'サーバーエラーが発生しました');}
     const data=await res.json();
-    clearInterval(t);
+    clearInterval(t);clearTimeout(noteTimer1);clearTimeout(noteTimer2);
     renderResult(data.result);
-  }catch(e){clearInterval(t);$('loadingSection').classList.remove('show');showPanel(1);$('err1').textContent=e.message;$('err1').classList.add('show');}
+  }catch(e){clearInterval(t);clearTimeout(noteTimer1);clearTimeout(noteTimer2);$('loadingSection').classList.remove('show');showPanel(1);$('err1').textContent=e.message;$('err1').classList.add('show');}
 });
 
 function renderResult(raw){
@@ -298,7 +317,7 @@ function renderResult(raw){
   $('dot2').classList.add('active');
 
   // シェアリンク設定
-  const shareText='URANAI COSMOSでAI総合占い鑑定をしてもらいました！5つの占術を統合した無料鑑定、ぜひ試してみてください ✨';
+  const shareText='URANAI COSMOSでAI総合占い鑑定をしてもらいました！7つの占術を統合した無料鑑定、ぜひ試してみてください ✨';
   const shareUrl='https://uranai-cosmos.onrender.com';
   $('shareX').href='https://x.com/intent/tweet?text='+encodeURIComponent(shareText)+'&url='+encodeURIComponent(shareUrl);
   $('shareLine').href='https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(shareUrl)+'&text='+encodeURIComponent(shareText);
@@ -307,12 +326,12 @@ function renderResult(raw){
 $('btnReset').addEventListener('click',()=>{
   selectedFile=null;fi.value='';$('previewImg').src='';$('previewWrap').classList.remove('show');$('btn12').disabled=true;
   $('resultSection').classList.remove('show');$('scoreGrid').style.display='none';$('readingContent').innerHTML='';
-  $('inName').value='';$('inBirth').value='';$('inBlood').value='';$('inGender').value='';
+  $('inName').value='';$('inBirth').value='';$('inBlood').value='';$('inGender').value='';$('inHour').value='不明';$('inRealName').value='';$('cardSeimei').style.display='none';
   ['dot0','dot1','dot2'].forEach((id,i)=>{$(id).classList.toggle('active',i===0);$(id).classList.remove('done');});
   showPanel(0);
 });
 
-function getZodiac(d){const dt=new Date(d),m=dt.getMonth()+1,day=dt.getDate();const z=[[1,20,'山羊座'],[2,19,'水瓶座'],[3,21,'魚座'],[4,20,'牡羊座'],[5,21,'牡牛座'],[6,21,'双子座'],[7,23,'蟹座'],[8,23,'獅子座'],[9,23,'乙女座'],[10,23,'天秤座'],[11,22,'蠍座'],[12,22,'射手座'],[1,19,'山羊座']];for(const[sm,sd,name]of z)if(m===sm&&day<=sd)return name;return z[m-1][2];}
+function getZodiac(d){const dt=new Date(d),m=dt.getMonth()+1,day=dt.getDate();const z=[[3,21,'牡羊座'],[4,20,'牡牛座'],[5,21,'双子座'],[6,22,'蟹座'],[7,23,'獅子座'],[8,23,'乙女座'],[9,23,'天秤座'],[10,24,'蠍座'],[11,22,'射手座'],[12,22,'山羊座'],[1,20,'水瓶座'],[2,19,'魚座']];for(const[sm,sd,name]of z)if(m===sm&&day>=sd)return name;const prev=[[1,'山羊座'],[2,'水瓶座'],[3,'魚座'],[4,'牡羊座'],[5,'牡牛座'],[6,'双子座'],[7,'蟹座'],[8,'獅子座'],[9,'乙女座'],[10,'天秤座'],[11,'蠍座'],[12,'射手座']];for(const[pm,name]of prev)if(m===pm)return name;return'';}
 function getKyusei(d){const y=new Date(d).getFullYear();return['九紫火星','一白水星','二黒土星','三碧木星','四緑木星','五黄土星','六白金星','七赤金星','八白土星'][(y+6)%9];}
 function getNumerology(d){let s=d.replace(/-/g,'').split('').reduce((a,c)=>a+parseInt(c),0);while(s>9&&s!==11&&s!==22)s=String(s).split('').reduce((a,c)=>a+parseInt(c),0);return s;}
 function toB64(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(file);});}
