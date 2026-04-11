@@ -72,6 +72,16 @@ async def robots():
     return FileResponse("robots.txt", media_type="text/plain")
 
 
+@app.get("/privacy")
+async def privacy():
+    return FileResponse("privacy.html")
+
+
+@app.get("/about")
+async def about():
+    return FileResponse("about.html")
+
+
 # ────────────────────────────────────────────
 # 鑑定API（1回で全文生成）
 # ────────────────────────────────────────────
