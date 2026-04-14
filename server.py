@@ -72,6 +72,11 @@ async def robots():
     return FileResponse("robots.txt", media_type="text/plain")
 
 
+@app.get("/og-image.png")
+async def og_image():
+    return FileResponse("og-image.png", media_type="image/png")
+
+
 @app.get("/privacy")
 async def privacy():
     return FileResponse("privacy.html")
