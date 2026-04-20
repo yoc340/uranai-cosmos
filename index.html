@@ -27,122 +27,767 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VDC742306F');</script>
 <!-- Google AdSense（審査通過後に data-ad-client を設定） -->
 <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Cinzel:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0c14;--surface:rgba(255,255,255,0.03);--border:rgba(180,160,255,0.15);--accent:#a78bfa;--accent2:#f0c070;--accent3:#7dd3c8;--text:#e8e4f0;--muted:rgba(232,228,240,0.45);--glow:rgba(167,139,250,0.2);}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 100% 60% at 50% -10%,rgba(100,60,180,0.18) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 10% 80%,rgba(60,120,180,0.1) 0%,transparent 50%);pointer-events:none;z-index:0;}
-.stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-.star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;animation:twinkle var(--d,3s) ease-in-out infinite var(--delay,0s);}
-@keyframes twinkle{0%,100%{opacity:0.1;}50%{opacity:0.9;}}
-header{position:relative;z-index:10;text-align:center;padding:56px 24px 36px;border-bottom:1px solid var(--border);}
-.logo{font-family:'Cinzel',serif;font-weight:300;font-size:clamp(2rem,7vw,4rem);letter-spacing:0.3em;background:linear-gradient(135deg,var(--accent),var(--accent2),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0;}
-.logo-ja{font-family:'Shippori Mincho',serif;font-size:0.78rem;letter-spacing:0.6em;color:var(--muted);margin-top:10px;}
-.tagline{font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.2em;color:rgba(167,139,250,0.6);margin-top:14px;}
-.div-line{display:flex;align-items:center;gap:10px;max-width:300px;margin:20px auto;}
-.div-line::before,.div-line::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
-.div-dot{color:var(--accent2);font-size:0.7rem;}
-main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:48px 20px 80px;}
-.step-indicator{display:flex;justify-content:center;gap:8px;margin-bottom:40px;}
-.step-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all 0.4s;}
-.step-dot.active{background:var(--accent);box-shadow:0 0 10px var(--glow);}
-.step-dot.done{background:var(--accent2);}
-.panel{display:none;animation:panelIn 0.5s ease;}
-.panel.show{display:block;}
-@keyframes panelIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.panel-title{font-family:'Shippori Mincho',serif;font-size:1.4rem;color:var(--accent2);letter-spacing:0.2em;text-align:center;margin-bottom:6px;}
-.panel-sub{font-size:0.72rem;letter-spacing:0.25em;color:var(--muted);text-align:center;margin-bottom:32px;}
-.field{margin-bottom:20px;}
-.field label{display:block;font-size:0.75rem;letter-spacing:0.25em;color:var(--muted);margin-bottom:8px;}
-.field input,.field select{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:12px 16px;font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.3s;border-radius:2px;-webkit-appearance:none;}
-.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 2px var(--glow);}
-.field select option{background:#1a1a2e;}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.upload-zone{border:1px dashed rgba(167,139,250,0.35);padding:40px 24px;text-align:center;cursor:pointer;transition:all 0.4s;border-radius:2px;background:var(--surface);}
-.upload-zone:hover,.upload-zone.over{border-color:var(--accent);background:rgba(167,139,250,0.06);}
-.upload-icon{font-size:2.5rem;display:block;margin-bottom:12px;opacity:0.7;}
-.upload-text{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--accent);letter-spacing:0.1em;}
-.upload-hint{font-size:0.7rem;letter-spacing:0.2em;color:var(--muted);margin-top:6px;}
-#fileInput{display:none;}
-.preview-wrap{display:none;margin-top:16px;}
-.preview-wrap.show{display:block;}
-.preview-frame{border:1px solid var(--border);padding:4px;max-width:280px;margin:0 auto;}
-.preview-frame img{width:100%;display:block;}
-.btn{display:inline-block;padding:13px 40px;border:1px solid var(--accent);background:transparent;color:var(--accent);font-family:'Shippori Mincho',serif;font-size:0.9rem;letter-spacing:0.35em;cursor:pointer;transition:all 0.35s;position:relative;overflow:hidden;border-radius:2px;}
-.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent),#7c3aed);transform:translateX(-100%);transition:transform 0.35s;z-index:-1;}
-.btn:hover::before{transform:translateX(0);}
-.btn:hover{color:#fff;border-color:transparent;}
-.btn:disabled{opacity:0.3;cursor:not-allowed;}
-.btn:disabled:hover{color:var(--accent);border-color:var(--accent);}
-.btn:disabled::before{display:none;}
-.btn-secondary{border-color:var(--border);color:var(--muted);font-size:0.75rem;padding:10px 28px;letter-spacing:0.2em;}
-.btn-secondary::before{background:rgba(255,255,255,0.05);}
-.btn-secondary:hover{color:var(--text);}
+:root {
+  --bg: #fef6fb;
+  --bg2: #fff9fe;
+  --card: #ffffff;
+  --border: rgba(220, 180, 240, 0.4);
+  --border2: rgba(255, 200, 230, 0.5);
+  --accent: #d07fd8;
+  --accent2: #f5a623;
+  --accent3: #7ecbd8;
+  --accent4: #f78fb3;
+  --green: #7ccc8e;
+  --text: #4a3550;
+  --text2: #7a6080;
+  --muted: #b09abf;
+  --shadow: rgba(200, 150, 220, 0.15);
+  --shadow2: rgba(200, 150, 220, 0.08);
+  --star1: #ffd166;
+  --star2: #ff9de2;
+  --star3: #a8e6cf;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+/* 背景のふわふわ星 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(240, 200, 255, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255, 200, 230, 0.25) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 50% 50%, rgba(200, 240, 255, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.floating-stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.fstar {
+  position: absolute;
+  font-size: var(--sz, 14px);
+  animation: floatUp var(--dur, 6s) ease-in-out infinite var(--del, 0s);
+  opacity: 0;
+}
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(0) rotate(0deg); }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.4; }
+  100% { opacity: 0; transform: translateY(-80px) rotate(20deg); }
+}
 
-.loading{display:none;text-align:center;padding:60px 0;}
-.loading.show{display:block;}
-.cosmos{width:80px;height:80px;margin:0 auto 24px;position:relative;}
-.cosmos-ring{position:absolute;inset:0;border-radius:50%;border:1px solid transparent;}
-.cosmos-ring:nth-child(1){border-top-color:var(--accent);animation:spin 1.5s linear infinite;}
-.cosmos-ring:nth-child(2){inset:10px;border-right-color:var(--accent2);animation:spin 2.5s linear infinite reverse;}
-.cosmos-ring:nth-child(3){inset:20px;border-bottom-color:var(--accent3);animation:spin 2s linear infinite;}
-.cosmos-core{position:absolute;inset:30px;border-radius:50%;background:radial-gradient(circle,var(--accent),#7c3aed);animation:pulse-core 2s ease-in-out infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-@keyframes pulse-core{0%,100%{opacity:0.6;transform:scale(1);}50%{opacity:1;transform:scale(1.2);}}
-.loading-text{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--accent);letter-spacing:0.2em;animation:fade-pulse 2s ease-in-out infinite;}
-.loading-sub{font-size:0.7rem;color:var(--muted);letter-spacing:0.2em;margin-top:8px;}
-@keyframes fade-pulse{0%,100%{opacity:0.5;}50%{opacity:1;}}
+/* ヘッダー */
+header {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 40px 20px 0;
+  background: linear-gradient(180deg, rgba(255,240,255,0.9) 0%, transparent 100%);
+}
+.logo-wrap {
+  margin-bottom: 12px;
+}
+.logo {
+  font-family: 'Kaisei Decol', serif;
+  font-size: clamp(2rem, 8vw, 3.6rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #c96dd8, #f5a623, #7ecbd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+.logo-ja {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.5em;
+  margin-top: 8px;
+  font-weight: 500;
+}
+.tagline {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  color: var(--accent4);
+  letter-spacing: 0.15em;
+  margin-top: 6px;
+}
 
-.result-section{display:none;animation:panelIn 0.8s ease;}
-.result-section.show{display:block;}
-.result-hero{text-align:center;margin-bottom:36px;}
-.result-name{font-family:'Cinzel',serif;font-size:1.8rem;font-weight:300;letter-spacing:0.3em;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.oracle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:10px;margin-bottom:24px;}
-.oracle-card{border:1px solid var(--border);padding:14px 8px;text-align:center;border-radius:2px;background:var(--surface);font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);}
-.oracle-card .oc-icon{font-size:1.4rem;display:block;margin-bottom:6px;}
-.score-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:24px 0;}
-.score-item{border:1px solid var(--border);padding:14px 16px;background:var(--surface);border-radius:2px;}
-.score-label{font-size:0.68rem;letter-spacing:0.2em;color:var(--muted);margin-bottom:8px;}
-.score-bar-wrap{background:rgba(255,255,255,0.05);height:4px;border-radius:2px;overflow:hidden;margin-bottom:6px;}
-.score-bar{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1s ease;}
-.score-val{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--accent2);}
-.reading-box{border:1px solid var(--border);padding:32px 28px;background:var(--surface);position:relative;border-radius:2px;margin-top:20px;}
-.reading-box::before{content:'';position:absolute;inset:5px;border:1px solid rgba(167,139,250,0.06);pointer-events:none;border-radius:2px;}
-.corner{position:absolute;width:14px;height:14px;border-color:var(--accent);border-style:solid;opacity:0.4;}
-.c-tl{top:-1px;left:-1px;border-width:1px 0 0 1px;}.c-tr{top:-1px;right:-1px;border-width:1px 1px 0 0;}
-.c-bl{bottom:-1px;left:-1px;border-width:0 0 1px 1px;}.c-br{bottom:-1px;right:-1px;border-width:0 1px 1px 0;}
-.reading-box h3{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--accent2);letter-spacing:0.15em;margin:24px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(167,139,250,0.15);}
-.reading-box h3:first-child{margin-top:0;}
-.reading-box p{font-size:0.88rem;line-height:2;color:rgba(232,228,240,0.85);margin-bottom:10px;}
+/* 猫キャラパレード */
+.cat-parade {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  margin: 16px auto 0;
+  max-width: 100%;
+  overflow: hidden;
+  height: 110px;
+  position: relative;
+}
+.cat-item {
+  width: 80px;
+  flex-shrink: 0;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  animation: catBob var(--bob-dur, 3s) ease-in-out infinite var(--bob-del, 0s);
+}
+.cat-item:hover {
+  transform: translateY(-12px) scale(1.15);
+  z-index: 5;
+}
+@keyframes catBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.cat-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 8px rgba(200,150,220,0.25));
+}
+.cat-item .cat-name {
+  font-size: 0.58rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .cat-item { width: 56px; }
+  .cat-item img { width: 50px; height: 50px; }
+  .cat-parade { height: 88px; gap: 0; }
+  .cat-item .cat-name { font-size: 0.5rem; }
+}
+@media (max-width: 400px) {
+  .cat-item { width: 44px; }
+  .cat-item img { width: 40px; height: 40px; }
+  .cat-item .cat-name { display: none; }
+}
+
+.header-wave {
+  display: block;
+  width: 100%;
+  margin-top: -2px;
+}
+
+/* メイン */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+/* ステップインジケーター */
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(208, 127, 216, 0.2);
+  border: 2px solid rgba(208, 127, 216, 0.3);
+  transition: all 0.4s;
+}
+.step-dot.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(208, 127, 216, 0.5);
+  transform: scale(1.3);
+}
+.step-dot.done {
+  background: var(--accent2);
+  border-color: var(--accent2);
+}
+
+/* パネル */
+.panel { display: none; animation: panelIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.panel.show { display: block; }
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* カード */
+.card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 24px var(--shadow), 0 1px 4px var(--shadow2);
+  border: 1.5px solid var(--border);
+  margin-bottom: 16px;
+}
+.panel-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.3rem;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+}
+.panel-sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 28px;
+  font-family: 'Nunito', sans-serif;
+}
+.panel-cat {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin: 0 auto 12px;
+  filter: drop-shadow(0 4px 8px rgba(200,150,220,0.3));
+  animation: catBob 3s ease-in-out infinite;
+}
+
+/* フォーム */
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--text2);
+  margin-bottom: 7px;
+  font-weight: 500;
+}
+.field input, .field select {
+  width: 100%;
+  background: var(--bg);
+  border: 2px solid var(--border2);
+  color: var(--text);
+  padding: 11px 16px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  border-radius: 14px;
+  -webkit-appearance: none;
+}
+.field input:focus, .field select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(208, 127, 216, 0.15);
+  background: #fff;
+}
+.field input::placeholder { color: var(--muted); }
+.field select option { background: #fff; color: var(--text); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+/* アップロードゾーン */
+.upload-zone {
+  border: 2.5px dashed rgba(208, 127, 216, 0.4);
+  padding: 36px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.35s;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255,240,255,0.8), rgba(240,255,255,0.8));
+}
+.upload-zone:hover, .upload-zone.over {
+  border-color: var(--accent);
+  background: rgba(208, 127, 216, 0.06);
+  transform: scale(1.02);
+}
+.upload-icon { font-size: 2.8rem; display: block; margin-bottom: 10px; }
+.upload-text {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+.upload-hint { font-size: 0.7rem; letter-spacing: 0.15em; color: var(--muted); margin-top: 6px; }
+#fileInput { display: none; }
+.preview-wrap { display: none; margin-top: 16px; }
+.preview-wrap.show { display: block; }
+.preview-frame {
+  border: 3px solid var(--border2);
+  padding: 6px;
+  max-width: 240px;
+  margin: 0 auto;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+.preview-frame img { width: 100%; display: block; border-radius: 12px; }
+
+/* ボタン */
+.btn {
+  display: inline-block;
+  padding: 13px 36px;
+  border: none;
+  background: linear-gradient(135deg, #d07fd8, #c055c8);
+  color: #fff;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 50px;
+  box-shadow: 0 4px 16px rgba(208, 127, 216, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(208, 127, 216, 0.5);
+}
+.btn:active { transform: translateY(0) scale(0.98); }
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 11px 28px;
+  box-shadow: none;
+}
+.btn-secondary:hover {
+  background: rgba(208, 127, 216, 0.06);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn-start {
+  background: linear-gradient(135deg, #f5a623, #f07d1a);
+  box-shadow: 0 4px 16px rgba(245, 166, 35, 0.4);
+}
+.btn-start:hover { box-shadow: 0 8px 24px rgba(245, 166, 35, 0.5); }
+
+/* ローディング */
+.loading { display: none; text-align: center; padding: 60px 0; }
+.loading.show { display: block; }
+.loading-cat-wrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 24px;
+}
+.loading-cat {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: loadingCatBounce 0.8s ease-in-out infinite alternate;
+  filter: drop-shadow(0 6px 12px rgba(200,150,220,0.4));
+}
+@keyframes loadingCatBounce {
+  from { transform: translate(-50%, -50%) scale(1); }
+  to { transform: translate(-50%, -60%) scale(1.08); }
+}
+.loading-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--accent);
+  animation: spin 1.4s linear infinite;
+}
+.loading-ring:nth-child(2) {
+  inset: 8px;
+  border-top-color: var(--accent2);
+  animation-duration: 2s;
+  animation-direction: reverse;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-text {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.1rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  animation: fadePulse 1.8s ease-in-out infinite;
+}
+.loading-sub {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  margin-top: 8px;
+}
+@keyframes fadePulse { 0%,100%{opacity:0.5;} 50%{opacity:1;} }
+
+/* 結果エリア */
+.result-section { display: none; animation: panelIn 0.8s ease; }
+.result-section.show { display: block; }
+.result-hero { text-align: center; margin-bottom: 28px; }
+.result-cat {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin: 0 auto 10px;
+  display: block;
+  animation: catBob 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 6px 14px rgba(200,150,220,0.35));
+}
+.result-name {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.5rem;
+  color: var(--text);
+  letter-spacing: 0.08em;
+}
+.result-sub {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.3em;
+  margin-top: 4px;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* オラクルグリッド */
+.oracle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.oracle-card {
+  background: var(--card);
+  border: 2px solid var(--border2);
+  padding: 12px 6px;
+  text-align: center;
+  border-radius: 16px;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--text2);
+  box-shadow: 0 2px 8px var(--shadow2);
+  transition: transform 0.2s;
+}
+.oracle-card:hover { transform: translateY(-3px); }
+.oracle-card .oc-icon { font-size: 1.3rem; display: block; margin-bottom: 4px; }
+
+/* スコアグリッド */
+.score-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0; }
+.score-item {
+  background: var(--card);
+  border: 2px solid var(--border2);
+  padding: 14px 16px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px var(--shadow2);
+}
+.score-label { font-size: 0.68rem; letter-spacing: 0.15em; color: var(--text2); margin-bottom: 8px; font-weight: 500; }
+.score-bar-wrap { background: rgba(208,127,216,0.1); height: 6px; border-radius: 10px; overflow: hidden; margin-bottom: 6px; }
+.score-bar { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.score-val { font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+
+/* 鑑定結果ボックス */
+.reading-box {
+  background: var(--card);
+  border: 2px solid var(--border);
+  padding: 28px 24px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px var(--shadow);
+  margin-top: 16px;
+  position: relative;
+}
+.reading-box::before {
+  content: '✨';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  background: var(--bg);
+  padding: 0 8px;
+}
+.reading-box h3 {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin: 22px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px dotted rgba(208, 127, 216, 0.3);
+}
+.reading-box h3:first-child { margin-top: 0; }
+.reading-box p {
+  font-size: 0.9rem;
+  line-height: 2;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
 
 /* 広告枠 */
-.ad-slot{border:1px solid var(--border);padding:20px;text-align:center;background:var(--surface);border-radius:2px;margin:24px 0;min-height:100px;}
-.ad-slot-label{font-size:0.6rem;letter-spacing:0.2em;color:rgba(232,228,240,0.15);margin-bottom:8px;}
+.ad-slot {
+  border: 2px dashed rgba(208, 127, 216, 0.2);
+  padding: 20px;
+  text-align: center;
+  background: rgba(255,245,255,0.6);
+  border-radius: 16px;
+  margin: 20px 0;
+  min-height: 90px;
+}
+.ad-slot-label { font-size: 0.6rem; letter-spacing: 0.2em; color: rgba(180,150,200,0.4); margin-bottom: 8px; }
 
 /* シェアボタン */
-.share-section{text-align:center;margin:28px 0;padding:20px;border:1px solid var(--border);border-radius:2px;background:var(--surface);}
-.share-title{font-family:'Shippori Mincho',serif;font-size:0.85rem;color:var(--muted);letter-spacing:0.2em;margin-bottom:14px;}
-.share-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
-.share-btn{display:inline-block;padding:10px 24px;border-radius:2px;font-size:0.75rem;letter-spacing:0.1em;text-decoration:none;color:#fff;transition:opacity 0.3s;}
-.share-btn:hover{opacity:0.8;}
-.share-btn.x{background:#000;}
-.share-btn.line{background:#06C755;}
+.share-section {
+  text-align: center;
+  margin: 20px 0;
+  padding: 20px;
+  border: 2px solid var(--border2);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255,240,255,0.6), rgba(240,255,255,0.6));
+}
+.share-title {
+  font-size: 0.85rem;
+  color: var(--text2);
+  letter-spacing: 0.15em;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.share-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.share-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s;
+}
+.share-btn:hover { transform: translateY(-2px); opacity: 0.85; }
+.share-btn.x { background: #1a1a1a; }
+.share-btn.line { background: #06C755; }
 
-.error{display:none;color:#f87171;font-size:0.78rem;letter-spacing:0.15em;text-align:center;margin-top:12px;}
-.error.show{display:block;}
-footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px solid var(--border);font-size:0.65rem;letter-spacing:0.2em;color:rgba(232,228,240,0.18);}
-@media(max-width:480px){.score-grid{grid-template-columns:1fr;}.field-row{grid-template-columns:1fr;}.reading-box{padding:20px 16px;}}
+/* エラー */
+.error {
+  display: none;
+  color: #e05a7a;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-top: 12px;
+  background: rgba(224,90,122,0.08);
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+.error.show { display: block; }
+
+/* フッター */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 24px 20px;
+  border-top: 2px dotted rgba(208, 127, 216, 0.2);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+footer a { color: var(--muted); text-decoration: none; margin-right: 16px; }
+footer a:hover { color: var(--accent); }
+
+/* セパレーター */
+.sep {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.sep::before, .sep::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border2), transparent);
+  border-radius: 2px;
+}
+
+/* 星座セレクターのtip */
+.zodiac-tip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(208,127,216,0.07);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: var(--text2);
+}
+.zodiac-tip img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.zodiac-tip-name {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.82rem;
+}
+
+/* SEOセクション */
+.seo-section {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 20px 56px;
+}
+.seo-section h2 {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1rem;
+  color: var(--accent2);
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+.seo-section p {
+  font-size: 0.78rem;
+  line-height: 2;
+  color: var(--muted);
+}
+.faq-item {
+  margin-bottom: 10px;
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card);
+}
+.faq-item summary {
+  font-size: 0.82rem;
+  color: var(--text2);
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  padding: 14px 18px;
+  font-weight: 500;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::before { content: '🐱 '; }
+.faq-item p {
+  font-size: 0.76rem;
+  line-height: 1.9;
+  color: var(--muted);
+  padding: 0 18px 14px;
+}
+.faq-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 0.95rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin: 24px 0 14px;
+}
+
+/* レスポンシブ */
+@media (max-width: 480px) {
+  .score-grid { grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+  .card { padding: 24px 18px; }
+  .reading-box { padding: 22px 16px; }
+}
+
+/* スクロールバー */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 </style>
 </head>
 <body>
-<div class="stars" id="stars"></div>
+
+<!-- 浮遊星 -->
+<div class="floating-stars" id="fstars"></div>
+
+<!-- ヘッダー -->
 <header>
-  <h1 class="logo">URANAI COSMOS</h1>
-  <p class="logo-ja">宇占 ── AI総合鑑定</p>
-  <div class="tagline">Seven arts. One destiny.</div>
-  <div class="div-line"><span class="div-dot">&#10022;</span></div>
+  <div class="logo-wrap">
+    <h1 class="logo">URANAI COSMOS</h1>
+    <p class="logo-ja">星猫占い ── AI 総合鑑定</p>
+    <div class="tagline">✨ Seven arts. One destiny. ✨</div>
+  </div>
+
+  <!-- 猫キャラパレード -->
+  <div class="cat-parade" id="catParade">
+    <div class="cat-item" style="--bob-dur:3.2s;--bob-del:0s">
+      <img src="/static/cats/cat_aries.png" alt="おひつじ座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">おひつじ</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:2.8s;--bob-del:0.3s">
+      <img src="/static/cats/cat_taurus.png" alt="おうし座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">おうし</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:3.5s;--bob-del:0.6s">
+      <img src="/static/cats/cat_gemini.png" alt="ふたご座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">ふたご</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:3.1s;--bob-del:0.9s">
+      <img src="/static/cats/cat_cancer.png" alt="かに座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">かに</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:2.9s;--bob-del:1.2s">
+      <img src="/static/cats/cat_leo.png" alt="しし座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">しし</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:3.4s;--bob-del:1.5s">
+      <img src="/static/cats/cat_virgo.png" alt="おとめ座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">おとめ</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:3.0s;--bob-del:1.8s">
+      <img src="/static/cats/cat_libra.png" alt="てんびん座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">てんびん</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:2.7s;--bob-del:2.1s">
+      <img src="/static/cats/cat_scorpio.png" alt="さそり座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">さそり</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:3.3s;--bob-del:2.4s">
+      <img src="/static/cats/cat_sagittarius.png" alt="いて座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">いて</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:2.6s;--bob-del:2.7s">
+      <img src="/static/cats/cat_capricorn.png" alt="やぎ座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">やぎ</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:3.6s;--bob-del:3.0s">
+      <img src="/static/cats/cat_aquarius.png" alt="みずがめ座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">みずがめ</div>
+    </div>
+    <div class="cat-item" style="--bob-dur:3.1s;--bob-del:3.3s">
+      <img src="/static/cats/cat_pisces.png" alt="うお座の猫" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🐱</text></svg>'">
+      <div class="cat-name">うお</div>
+    </div>
+  </div>
+
+  <!-- ウェーブ -->
+  <svg class="header-wave" viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" fill="#fef6fb"/>
+  </svg>
 </header>
+
 <main>
   <div class="step-indicator">
     <div class="step-dot active" id="dot0"></div>
@@ -150,138 +795,220 @@ footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px
     <div class="step-dot" id="dot2"></div>
   </div>
 
-  <!-- Panel 0: Profile -->
+  <!-- Panel 0: プロフィール -->
   <div class="panel show" id="panel0">
-    <div class="panel-title">あなたのことを教えてください</div>
-    <div class="panel-sub">PROFILE &#183; STEP 1</div>
-    <div class="field"><label>お名前（ニックネーム可）</label><input type="text" id="inName" placeholder="例：花子"></div>
-    <div class="field-row">
-      <div class="field"><label>生年月日</label><input type="date" id="inBirth"></div>
-      <div class="field"><label>血液型</label><select id="inBlood"><option value="">選択</option><option value="A">A型</option><option value="B">B型</option><option value="O">O型</option><option value="AB">AB型</option></select></div>
+    <div class="card">
+      <img class="panel-cat" src="/static/cats/cat_leo.png" alt="占いの猫" id="profileCat"
+           onerror="this.style.display='none'">
+      <div class="panel-title">あなたのことを教えてください</div>
+      <div class="panel-sub">PROFILE · STEP 1</div>
+
+      <div class="field">
+        <label>🌟 お名前（ニックネーム可）</label>
+        <input type="text" id="inName" placeholder="例：花子">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>🎂 生年月日</label>
+          <input type="date" id="inBirth">
+        </div>
+        <div class="field">
+          <label>🩸 血液型</label>
+          <select id="inBlood">
+            <option value="">選択</option>
+            <option value="A">A型</option>
+            <option value="B">B型</option>
+            <option value="O">O型</option>
+            <option value="AB">AB型</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>💫 性別</label>
+          <select id="inGender">
+            <option value="">選択</option>
+            <option value="男性">男性</option>
+            <option value="女性">女性</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>🕐 生まれた時間（四柱推命用）</label>
+          <select id="inHour">
+            <option value="不明">不明</option>
+            <option value="23:00-01:00">23:00-01:00（子の刻）</option>
+            <option value="01:00-03:00">01:00-03:00（丑の刻）</option>
+            <option value="03:00-05:00">03:00-05:00（寅の刻）</option>
+            <option value="05:00-07:00">05:00-07:00（卯の刻）</option>
+            <option value="07:00-09:00">07:00-09:00（辰の刻）</option>
+            <option value="09:00-11:00">09:00-11:00（巳の刻）</option>
+            <option value="11:00-13:00">11:00-13:00（午の刻）</option>
+            <option value="13:00-15:00">13:00-15:00（未の刻）</option>
+            <option value="15:00-17:00">15:00-17:00（申の刻）</option>
+            <option value="17:00-19:00">17:00-19:00（酉の刻）</option>
+            <option value="19:00-21:00">19:00-21:00（戌の刻）</option>
+            <option value="21:00-23:00">21:00-23:00（亥の刻）</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>✍️ 本名（姓名判断用・任意）</label>
+        <input type="text" id="inRealName" placeholder="例：山田 花子（入力すると姓名判断も鑑定します）">
+      </div>
+
+      <!-- 星座ティップ -->
+      <div class="zodiac-tip" id="zodiacTip" style="display:none">
+        <img id="zodiacTipCat" src="" alt="">
+        <div>
+          <div class="zodiac-tip-name" id="zodiacTipName"></div>
+          <div style="font-size:0.7rem;color:var(--muted)">あなたの守護猫は<span id="zodiacTipName2"></span>ねこちゃんです 🐾</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:24px;">
+        <button class="btn btn-start" id="btn01">🐾 次へ ── 手相を撮影</button>
+      </div>
+      <div class="error" id="err0">名前・生年月日・血液型を入力してください</div>
     </div>
-    <div class="field-row">
-      <div class="field"><label>性別</label><select id="inGender"><option value="">選択</option><option value="男性">男性</option><option value="女性">女性</option><option value="その他">その他</option></select></div>
-      <div class="field"><label>生まれた時間（四柱推命用）</label><select id="inHour"><option value="不明">不明</option><option value="23:00-01:00">23:00-01:00（子の刻）</option><option value="01:00-03:00">01:00-03:00（丑の刻）</option><option value="03:00-05:00">03:00-05:00（寅の刻）</option><option value="05:00-07:00">05:00-07:00（卯の刻）</option><option value="07:00-09:00">07:00-09:00（辰の刻）</option><option value="09:00-11:00">09:00-11:00（巳の刻）</option><option value="11:00-13:00">11:00-13:00（午の刻）</option><option value="13:00-15:00">13:00-15:00（未の刻）</option><option value="15:00-17:00">15:00-17:00（申の刻）</option><option value="17:00-19:00">17:00-19:00（酉の刻）</option><option value="19:00-21:00">19:00-21:00（戌の刻）</option><option value="21:00-23:00">21:00-23:00（亥の刻）</option></select></div>
-    </div>
-    <div class="field"><label>本名（姓名判断用・任意）</label><input type="text" id="inRealName" placeholder="例：山田 花子（入力すると姓名判断も鑑定します）"></div>
-    <div class="btn-center" style="text-align:center;margin-top:28px;"><button class="btn" id="btn01">次へ ── 手相を撮影</button></div>
-    <div class="error" id="err0">名前・生年月日・血液型を入力してください</div>
   </div>
 
-  <!-- Panel 1: Palm -->
+  <!-- Panel 1: 手相アップロード -->
   <div class="panel" id="panel1">
-    <div class="panel-title">手のひらを撮影してください</div>
-    <div class="panel-sub">PALM PHOTO &#183; STEP 2</div>
-    <div class="upload-zone" id="uploadZone">
-      <span class="upload-icon">&#x1F91A;</span>
-      <div class="upload-text">写真をアップロード</div>
-      <div class="upload-hint">PNG / JPG &#183; タップまたはドラッグ&amp;ドロップ</div>
-      <input type="file" id="fileInput" accept="image/*">
+    <div class="card">
+      <img class="panel-cat" src="/static/cats/cat_cancer.png" alt="手相の猫"
+           onerror="this.style.display='none'">
+      <div class="panel-title">手のひらを撮影してください</div>
+      <div class="panel-sub">PALM PHOTO · STEP 2</div>
+
+      <div class="upload-zone" id="uploadZone">
+        <span class="upload-icon">🤚</span>
+        <div class="upload-text">写真をアップロード</div>
+        <div class="upload-hint">PNG / JPG · タップまたはドラッグ&ドロップ</div>
+        <input type="file" id="fileInput" accept="image/*">
+      </div>
+      <div class="preview-wrap" id="previewWrap">
+        <div class="preview-frame"><img id="previewImg" alt="手相"></div>
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+        <button class="btn btn-secondary" id="btn10">← 戻る</button>
+        <button class="btn" id="btn12" disabled>✨ 無料で鑑定する</button>
+      </div>
+      <div class="error" id="err1"></div>
     </div>
-    <div class="preview-wrap" id="previewWrap"><div class="preview-frame"><img id="previewImg" alt="手相"></div></div>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
-      <button class="btn btn-secondary" id="btn10">&larr; 戻る</button>
-      <button class="btn" id="btn12" disabled>無料で鑑定する</button>
-    </div>
-    <div class="error" id="err1"></div>
   </div>
 
-  <!-- Loading -->
+  <!-- ローディング -->
   <div class="loading" id="loadingSection">
-    <div class="cosmos"><div class="cosmos-ring"></div><div class="cosmos-ring"></div><div class="cosmos-ring"></div><div class="cosmos-core"></div></div>
+    <div class="loading-cat-wrap">
+      <div class="loading-ring"></div>
+      <div class="loading-ring"></div>
+      <img class="loading-cat" src="/static/cats/cat_aquarius.png" alt="鑑定中の猫" id="loadingCat"
+           onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><text y=%2248%22 font-size=%2248%22>🔮</text></svg>'">
+    </div>
     <div class="loading-text" id="loadingText">鑑定しています</div>
     <div class="loading-sub" id="loadingStep">手相を分析中...</div>
-    <div class="loading-sub" id="loadingNote" style="margin-top:16px;opacity:0;transition:opacity 0.5s;"></div>
+    <div class="loading-sub" id="loadingNote" style="margin-top:12px;opacity:0;transition:opacity 0.5s;"></div>
   </div>
 
-  <!-- Result -->
+  <!-- 結果エリア -->
   <div class="result-section" id="resultSection">
     <div class="result-hero">
-      <div class="panel-sub">READING</div>
+      <img class="result-cat" src="/static/cats/cat_pisces.png" alt="結果の猫" id="resultCat"
+           onerror="this.style.display='none'">
+      <div class="result-sub">READING RESULT</div>
       <div class="result-name" id="resultName">鑑定結果</div>
-      <div class="div-line"><span class="div-dot">&#10022;</span></div>
-    </div>
-    <div class="oracle-grid">
-      <div class="oracle-card"><span class="oc-icon">&#x1F91A;</span><span>手相</span></div>
-      <div class="oracle-card"><span class="oc-icon">&#x2B50;</span><span>星座</span></div>
-      <div class="oracle-card"><span class="oc-icon">&#x1F33F;</span><span>九星</span></div>
-      <div class="oracle-card"><span class="oc-icon">&#x1F522;</span><span>数秘術</span></div>
-      <div class="oracle-card"><span class="oc-icon">&#x1FA78;</span><span>血液型</span></div>
-      <div class="oracle-card"><span class="oc-icon">&#x1F300;</span><span>四柱推命</span></div>
-      <div class="oracle-card" id="cardSeimei" style="display:none"><span class="oc-icon">&#x1F4DC;</span><span>姓名判断</span></div>
-    </div>
-    <div class="score-grid" id="scoreGrid" style="display:none">
-      <div class="score-item"><div class="score-label">総合運</div><div class="score-bar-wrap"><div class="score-bar" id="sb0" style="width:0%"></div></div><div class="score-val" id="sv0">&ndash;</div></div>
-      <div class="score-item"><div class="score-label">恋愛運</div><div class="score-bar-wrap"><div class="score-bar" id="sb1" style="width:0%"></div></div><div class="score-val" id="sv1">&ndash;</div></div>
-      <div class="score-item"><div class="score-label">仕事運</div><div class="score-bar-wrap"><div class="score-bar" id="sb2" style="width:0%"></div></div><div class="score-val" id="sv2">&ndash;</div></div>
-      <div class="score-item"><div class="score-label">金運</div><div class="score-bar-wrap"><div class="score-bar" id="sb3" style="width:0%"></div></div><div class="score-val" id="sv3">&ndash;</div></div>
     </div>
 
-    <!-- 鑑定結果 -->
+    <div class="oracle-grid">
+      <div class="oracle-card"><span class="oc-icon">🤚</span><span>手相</span></div>
+      <div class="oracle-card"><span class="oc-icon">⭐</span><span>星座</span></div>
+      <div class="oracle-card"><span class="oc-icon">🌿</span><span>九星</span></div>
+      <div class="oracle-card"><span class="oc-icon">🔢</span><span>数秘術</span></div>
+      <div class="oracle-card"><span class="oc-icon">🩸</span><span>血液型</span></div>
+      <div class="oracle-card"><span class="oc-icon">🌀</span><span>四柱推命</span></div>
+      <div class="oracle-card" id="cardSeimei" style="display:none"><span class="oc-icon">📜</span><span>姓名判断</span></div>
+    </div>
+
+    <div class="score-grid" id="scoreGrid" style="display:none">
+      <div class="score-item">
+        <div class="score-label">🌟 総合運</div>
+        <div class="score-bar-wrap"><div class="score-bar" id="sb0" style="width:0%"></div></div>
+        <div class="score-val" id="sv0">–</div>
+      </div>
+      <div class="score-item">
+        <div class="score-label">💕 恋愛運</div>
+        <div class="score-bar-wrap"><div class="score-bar" id="sb1" style="width:0%"></div></div>
+        <div class="score-val" id="sv1">–</div>
+      </div>
+      <div class="score-item">
+        <div class="score-label">💼 仕事運</div>
+        <div class="score-bar-wrap"><div class="score-bar" id="sb2" style="width:0%"></div></div>
+        <div class="score-val" id="sv2">–</div>
+      </div>
+      <div class="score-item">
+        <div class="score-label">💰 金運</div>
+        <div class="score-bar-wrap"><div class="score-bar" id="sb3" style="width:0%"></div></div>
+        <div class="score-val" id="sv3">–</div>
+      </div>
+    </div>
+
     <div class="reading-box">
-      <span class="corner c-tl"></span><span class="corner c-tr"></span>
-      <span class="corner c-bl"></span><span class="corner c-br"></span>
       <div id="readingContent"></div>
     </div>
 
-    <!-- 広告枠1: 鑑定結果の下 -->
+    <!-- 広告枠1 -->
     <div class="ad-slot" id="adSlot1">
       <div class="ad-slot-label">AD</div>
-      <!-- AdSense審査通過後にここにコードを挿入 -->
     </div>
 
     <!-- シェアボタン -->
     <div class="share-section">
-      <div class="share-title">鑑定結果をシェアする</div>
+      <div class="share-title">🐾 鑑定結果をシェアする</div>
       <div class="share-buttons">
-        <a class="share-btn x" id="shareX" href="#" target="_blank">X でシェア</a>
+        <a class="share-btn x" id="shareX" href="#" target="_blank">𝕏 でシェア</a>
         <a class="share-btn line" id="shareLine" href="#" target="_blank">LINE でシェア</a>
       </div>
     </div>
 
-    <!-- 広告枠2: シェアボタンの下 -->
+    <!-- 広告枠2 -->
     <div class="ad-slot" id="adSlot2">
       <div class="ad-slot-label">AD</div>
-      <!-- AdSense審査通過後にここにコードを挿入 -->
     </div>
 
-    <div style="text-align:center;margin-top:28px;">
-      <button class="btn btn-secondary" id="btnReset">もう一度鑑定する</button>
+    <div style="text-align:center;margin-top:24px;">
+      <button class="btn btn-secondary" id="btnReset">🔄 もう一度鑑定する</button>
     </div>
   </div>
 </main>
 
-<!-- SEOテキスト（検索エンジン向けコンテンツ） -->
-<section style="position:relative;z-index:1;max-width:720px;margin:0 auto;padding:0 20px 48px;">
-  <div style="border-top:1px solid rgba(180,160,255,0.1);padding-top:32px;">
-    <h2 style="font-family:'Shippori Mincho',serif;font-size:1rem;color:rgba(240,192,112,0.7);letter-spacing:0.15em;margin-bottom:16px;">URANAI COSMOS ── AI占い無料鑑定サービス</h2>
-    <p style="font-size:0.78rem;line-height:2;color:rgba(232,228,240,0.4);">URANAI COSMOSは、手相をAIが写真から自動分析し、西洋占星術（星座占い）、九星気学、四柱推命、数秘術、血液型占い、姓名判断の7つの占術を統合した無料AI占い鑑定サービスです。手のひらの写真をアップロードするだけで、あなただけのオリジナル鑑定結果をお届けします。手相AI鑑定は写真をアップロードするだけで完了。四柱推命は生まれた時間が不明でも三柱で鑑定可能です。姓名判断は本名を入力した方のみ鑑定を行います。会員登録不要・完全無料でご利用いただけます。</p>
+<!-- SEOセクション -->
+<section class="seo-section">
+  <div style="border-top:2px dotted rgba(208,127,216,0.2);padding-top:32px;">
+    <h2>URANAI COSMOS ── AI占い無料鑑定サービス</h2>
+    <p>URANAI COSMOSは、手相をAIが写真から自動分析し、西洋占星術（星座占い）、九星気学、四柱推命、数秘術、血液型占い、姓名判断の7つの占術を統合した無料AI占い鑑定サービスです。手のひらの写真をアップロードするだけで、あなただけのオリジナル鑑定結果をお届けします。手相AI鑑定は写真をアップロードするだけで完了。四柱推命は生まれた時間が不明でも三柱で鑑定可能です。姓名判断は本名を入力した方のみ鑑定を行います。会員登録不要・完全無料でご利用いただけます。</p>
 
-    <h3 style="font-family:'Shippori Mincho',serif;font-size:0.9rem;color:rgba(240,192,112,0.5);letter-spacing:0.1em;margin:24px 0 12px;">よくある質問</h3>
+    <div class="faq-title">よくある質問</div>
 
-    <details style="margin-bottom:12px;border:1px solid rgba(180,160,255,0.1);border-radius:2px;padding:12px 16px;">
-      <summary style="font-size:0.8rem;color:rgba(232,228,240,0.6);cursor:pointer;letter-spacing:0.05em;">AI占いは本当に無料ですか？</summary>
-      <p style="font-size:0.75rem;line-height:1.9;color:rgba(232,228,240,0.35);margin-top:8px;">はい、URANAI COSMOSは完全無料です。会員登録も不要で、すべての占術（手相・星座・九星気学・四柱推命・数秘術・血液型・姓名判断）の鑑定結果を無料でご覧いただけます。</p>
+    <details class="faq-item">
+      <summary>AI占いは本当に無料ですか？</summary>
+      <p>はい、URANAI COSMOSは完全無料です。会員登録も不要で、すべての占術（手相・星座・九星気学・四柱推命・数秘術・血液型・姓名判断）の鑑定結果を無料でご覧いただけます。</p>
     </details>
-
-    <details style="margin-bottom:12px;border:1px solid rgba(180,160,255,0.1);border-radius:2px;padding:12px 16px;">
-      <summary style="font-size:0.8rem;color:rgba(232,228,240,0.6);cursor:pointer;letter-spacing:0.05em;">手相の写真はどうやって撮ればいいですか？</summary>
-      <p style="font-size:0.75rem;line-height:1.9;color:rgba(232,228,240,0.35);margin-top:8px;">スマートフォンのカメラで手のひらをまっすぐ撮影してください。明るい場所で、手のひら全体が写るように撮るとAIが正確に分析できます。PNGまたはJPG形式でアップロードしてください。</p>
+    <details class="faq-item">
+      <summary>手相の写真はどうやって撮ればいいですか？</summary>
+      <p>スマートフォンのカメラで手のひらをまっすぐ撮影してください。明るい場所で、手のひら全体が写るように撮るとAIが正確に分析できます。PNGまたはJPG形式でアップロードしてください。</p>
     </details>
-
-    <details style="margin-bottom:12px;border:1px solid rgba(180,160,255,0.1);border-radius:2px;padding:12px 16px;">
-      <summary style="font-size:0.8rem;color:rgba(232,228,240,0.6);cursor:pointer;letter-spacing:0.05em;">四柱推命で生まれた時間が分からない場合は？</summary>
-      <p style="font-size:0.75rem;line-height:1.9;color:rgba(232,228,240,0.35);margin-top:8px;">生まれた時間が不明でも問題ありません。年柱・月柱・日柱の三柱で鑑定を行います。生まれた時間が分かる場合は、より精密な四柱での鑑定が可能です。</p>
+    <details class="faq-item">
+      <summary>四柱推命で生まれた時間が分からない場合は？</summary>
+      <p>生まれた時間が不明でも問題ありません。年柱・月柱・日柱の三柱で鑑定を行います。生まれた時間が分かる場合は、より精密な四柱での鑑定が可能です。</p>
     </details>
-
-    <details style="margin-bottom:12px;border:1px solid rgba(180,160,255,0.1);border-radius:2px;padding:12px 16px;">
-      <summary style="font-size:0.8rem;color:rgba(232,228,240,0.6);cursor:pointer;letter-spacing:0.05em;">姓名判断はニックネームでもできますか？</summary>
-      <p style="font-size:0.75rem;line-height:1.9;color:rgba(232,228,240,0.35);margin-top:8px;">姓名判断は漢字の画数に基づくため、本名での鑑定を推奨しています。本名の入力は任意で、入力しない場合は他の6つの占術で鑑定を行います。ニックネームでも気軽にご利用いただけます。</p>
+    <details class="faq-item">
+      <summary>姓名判断はニックネームでもできますか？</summary>
+      <p>姓名判断は漢字の画数に基づくため、本名での鑑定を推奨しています。本名の入力は任意で、入力しない場合は他の6つの占術で鑑定を行います。ニックネームでも気軽にご利用いただけます。</p>
     </details>
-
-    <details style="margin-bottom:12px;border:1px solid rgba(180,160,255,0.1);border-radius:2px;padding:12px 16px;">
-      <summary style="font-size:0.8rem;color:rgba(232,228,240,0.6);cursor:pointer;letter-spacing:0.05em;">個人情報は安全ですか？</summary>
-      <p style="font-size:0.75rem;line-height:1.9;color:rgba(232,228,240,0.35);margin-top:8px;">鑑定に使用した情報はサーバーに保存されず、鑑定完了後に自動的に破棄されます。詳しくは<a href="/privacy" style="color:rgba(167,139,250,0.6);">プライバシーポリシー</a>をご確認ください。</p>
+    <details class="faq-item">
+      <summary>個人情報は安全ですか？</summary>
+      <p>鑑定に使用した情報はサーバーに保存されず、鑑定完了後に自動的に破棄されます。詳しくは<a href="/privacy" style="color:var(--accent)">プライバシーポリシー</a>をご確認ください。</p>
     </details>
   </div>
 </section>
@@ -291,95 +1018,210 @@ footer{position:relative;z-index:1;text-align:center;padding:20px;border-top:1px
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AI占いは本当に無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、URANAI COSMOSは完全無料です。会員登録も不要で、すべての占術（手相・星座・九星気学・四柱推命・数秘術・血液型・姓名判断）の鑑定結果を無料でご覧いただけます。"}},{"@type":"Question","name":"手相の写真はどうやって撮ればいいですか？","acceptedAnswer":{"@type":"Answer","text":"スマートフォンのカメラで手のひらをまっすぐ撮影してください。明るい場所で、手のひら全体が写るように撮るとAIが正確に分析できます。"}},{"@type":"Question","name":"四柱推命で生まれた時間が分からない場合は？","acceptedAnswer":{"@type":"Answer","text":"生まれた時間が不明でも問題ありません。年柱・月柱・日柱の三柱で鑑定を行います。生まれた時間が分かる場合は、より精密な四柱での鑑定が可能です。"}},{"@type":"Question","name":"姓名判断はニックネームでもできますか？","acceptedAnswer":{"@type":"Answer","text":"姓名判断は漢字の画数に基づくため、本名での鑑定を推奨しています。本名の入力は任意で、入力しない場合は他の6つの占術で鑑定を行います。"}},{"@type":"Question","name":"個人情報は安全ですか？","acceptedAnswer":{"@type":"Answer","text":"鑑定に使用した情報はサーバーに保存されず、鑑定完了後に自動的に破棄されます。"}}]}
 </script>
 
-<footer><a href="/about" style="color:rgba(232,228,240,0.3);text-decoration:none;margin-right:16px;">7つの占術について</a><a href="/privacy" style="color:rgba(232,228,240,0.3);text-decoration:none;margin-right:16px;">プライバシーポリシー</a><br style="margin-bottom:8px">&copy; URANAI COSMOS &mdash; 本鑑定はAIによる娯楽目的であり、科学的根拠に基づくものではありません</footer>
+<footer>
+  <a href="/about">7つの占術について</a>
+  <a href="/privacy">プライバシーポリシー</a>
+  <br style="margin-bottom:8px">
+  &copy; URANAI COSMOS &mdash; 本鑑定はAIによる娯楽目的であり、科学的根拠に基づくものではありません
+</footer>
 
 <script>
-(function(){const c=document.getElementById('stars');for(let i=0;i<80;i++){const s=document.createElement('div');s.className='star';s.style.cssText='left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--d:'+(2+Math.random()*4)+'s;--delay:'+Math.random()*4+'s;opacity:'+(0.1+Math.random()*0.5);c.appendChild(s);}})();
+// 浮遊星の生成
+(function(){
+  const c = document.getElementById('fstars');
+  const emojis = ['⭐','✨','💫','🌟','⚡','🌸','💕','🍀'];
+  for(let i = 0; i < 25; i++){
+    const s = document.createElement('div');
+    s.className = 'fstar';
+    s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    s.style.cssText = `left:${Math.random()*100}%;top:${30+Math.random()*70}%;--sz:${10+Math.random()*14}px;--dur:${5+Math.random()*8}s;--del:${Math.random()*8}s;`;
+    c.appendChild(s);
+  }
+})();
 
-const $=id=>document.getElementById(id);
-let selectedFile=null;
-let serverReady=false;
+// 星座データ
+const ZODIAC_DATA = [
+  { name:'おひつじ座', cat:'cat_aries', months:[[3,21],[4,19]] },
+  { name:'おうし座',   cat:'cat_taurus', months:[[4,20],[5,20]] },
+  { name:'ふたご座',   cat:'cat_gemini', months:[[5,21],[6,21]] },
+  { name:'かに座',     cat:'cat_cancer', months:[[6,22],[7,22]] },
+  { name:'しし座',     cat:'cat_leo', months:[[7,23],[8,22]] },
+  { name:'おとめ座',   cat:'cat_virgo', months:[[8,23],[9,22]] },
+  { name:'てんびん座', cat:'cat_libra', months:[[9,23],[10,23]] },
+  { name:'さそり座',   cat:'cat_scorpio', months:[[10,24],[11,22]] },
+  { name:'いて座',     cat:'cat_sagittarius', months:[[11,23],[12,21]] },
+  { name:'やぎ座',     cat:'cat_capricorn', months:[[12,22],[1,19]] },
+  { name:'みずがめ座', cat:'cat_aquarius', months:[[1,20],[2,18]] },
+  { name:'うお座',     cat:'cat_pisces', months:[[2,19],[3,20]] },
+];
 
-// ページ読み込み時にサーバーをウォームアップ
+function getZodiacData(dateStr) {
+  if(!dateStr) return null;
+  const dt = new Date(dateStr), m = dt.getMonth()+1, day = dt.getDate();
+  for(const z of ZODIAC_DATA){
+    const [[sm,sd],[em,ed]] = z.months;
+    if(sm <= em){
+      if(m===sm&&day>=sd) return z;
+      if(m===em&&day<=ed) return z;
+    } else {
+      if(m===sm&&day>=sd) return z;
+      if(m===em&&day<=ed) return z;
+    }
+  }
+  return ZODIAC_DATA[11];
+}
+
+const $ = id => document.getElementById(id);
+
+let selectedFile = null;
+let serverReady = false;
 fetch('/').then(()=>{serverReady=true;}).catch(()=>{});
 
-function showPanel(n){['panel0','panel1'].forEach((id,i)=>$(id).classList.toggle('show',i===n));['dot0','dot1','dot2'].forEach((id,i)=>{$(id).classList.toggle('active',i===n);$(id).classList.toggle('done',i<n);});}
+// 生年月日変更で星座猫を表示
+$('inBirth').addEventListener('change', function(){
+  const z = getZodiacData(this.value);
+  if(z){
+    $('zodiacTipCat').src = `/static/cats/${z.cat}.png`;
+    $('zodiacTipName').textContent = z.name;
+    $('zodiacTipName2').textContent = z.name;
+    $('zodiacTip').style.display = 'flex';
+    // プロフィールパネルの猫も切り替え
+    $('profileCat').src = `/static/cats/${z.cat}.png`;
+  }
+});
 
-$('btn01').addEventListener('click',()=>{$('err0').classList.remove('show');if(!$('inName').value||!$('inBirth').value||!$('inBlood').value){$('err0').classList.add('show');return;}showPanel(1);});
+function showPanel(n){
+  ['panel0','panel1'].forEach((id,i) => $(id).classList.toggle('show', i===n));
+  ['dot0','dot1','dot2'].forEach((id,i) => {
+    $(id).classList.toggle('active', i===n);
+    $(id).classList.toggle('done', i<n);
+  });
+}
 
-const zone=$('uploadZone'),fi=$('fileInput');
-zone.addEventListener('click',()=>fi.click());
-zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('over');});
-zone.addEventListener('dragleave',()=>zone.classList.remove('over'));
-zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('over');const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/'))setFile(f);});
-fi.addEventListener('change',()=>{if(fi.files[0])setFile(fi.files[0]);});
-function setFile(f){selectedFile=f;const r=new FileReader();r.onload=e=>{$('previewImg').src=e.target.result;$('previewWrap').classList.add('show');$('btn12').disabled=false;$('err1').classList.remove('show');};r.readAsDataURL(f);}
+$('btn01').addEventListener('click', () => {
+  $('err0').classList.remove('show');
+  if(!$('inName').value || !$('inBirth').value || !$('inBlood').value){
+    $('err0').classList.add('show'); return;
+  }
+  showPanel(1);
+});
 
-$('btn10').addEventListener('click',()=>showPanel(0));
+const zone=$('uploadZone'), fi=$('fileInput');
+zone.addEventListener('click', () => fi.click());
+zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('over'); });
+zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+zone.addEventListener('drop', e => {
+  e.preventDefault(); zone.classList.remove('over');
+  const f = e.dataTransfer.files[0];
+  if(f && f.type.startsWith('image/')) setFile(f);
+});
+fi.addEventListener('change', () => { if(fi.files[0]) setFile(fi.files[0]); });
+
+function setFile(f){
+  selectedFile = f;
+  const r = new FileReader();
+  r.onload = e => {
+    $('previewImg').src = e.target.result;
+    $('previewWrap').classList.add('show');
+    $('btn12').disabled = false;
+    $('err1').classList.remove('show');
+  };
+  r.readAsDataURL(f);
+}
+
+$('btn10').addEventListener('click', () => showPanel(0));
 
 // 鑑定実行
-$('btn12').addEventListener('click',async()=>{
-  if(!selectedFile)return;
+$('btn12').addEventListener('click', async () => {
+  if(!selectedFile) return;
   $('err1').classList.remove('show');
   $('panel1').classList.remove('show');
   $('loadingSection').classList.add('show');
-  $('loadingText').textContent='鑑定しています';
-  $('loadingNote').style.opacity='0';$('loadingNote').textContent='';
-  const steps=['手相を分析中...','占術を統合中...','鑑定結果を生成中...','星座と九星を解読中...','アドバイスを生成中...'];
-  let si=0;const t=setInterval(()=>{si=(si+1)%steps.length;$('loadingStep').textContent=steps[si];},2500);
-  // 10秒後に「少しお時間をいただいています」と表示
-  const noteTimer1=setTimeout(()=>{$('loadingNote').textContent='初回アクセス時はお時間をいただく場合があります';$('loadingNote').style.opacity='1';},10000);
-  // 30秒後にメッセージ更新
-  const noteTimer2=setTimeout(()=>{$('loadingNote').textContent='サーバーを準備中です。もうしばらくお待ちください';},30000);
-  const birth=$('inBirth').value;
-  const b64=await toB64(selectedFile);
-  const realName=$('inRealName').value.trim();
-  const body={name:$('inName').value,birth:birth,blood:$('inBlood').value,gender:$('inGender').value||'不明',zodiac:getZodiac(birth),kyusei:getKyusei(birth),numerology:getNumerology(birth),birth_hour:$('inHour').value,real_name:realName,image_b64:b64,image_type:selectedFile.type||'image/jpeg'};
-  // 姓名判断カードの表示
-  if(realName){$('cardSeimei').style.display='';}else{$('cardSeimei').style.display='none';}
-  try{
-    const res=await fetch('/divine',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-    if(!res.ok){const e=await res.json().catch(()=>{});throw new Error(e?.detail||'サーバーエラーが発生しました');}
-    const data=await res.json();
-    clearInterval(t);clearTimeout(noteTimer1);clearTimeout(noteTimer2);
-    renderResult(data.result);
-  }catch(e){clearInterval(t);clearTimeout(noteTimer1);clearTimeout(noteTimer2);$('loadingSection').classList.remove('show');showPanel(1);$('err1').textContent=e.message;$('err1').classList.add('show');}
+  $('loadingText').textContent = '鑑定しています';
+  $('loadingNote').style.opacity = '0';
+  $('loadingNote').textContent = '';
+
+  // ローディング猫をランダムに
+  const cats = ['cat_aries','cat_gemini','cat_leo','cat_sagittarius','cat_aquarius'];
+  $('loadingCat').src = `/static/cats/${cats[Math.floor(Math.random()*cats.length)]}.png`;
+
+  const steps = ['手相を分析中...','占術を統合中...','鑑定結果を生成中...','星座と九星を解読中...','アドバイスを生成中...'];
+  let si = 0;
+  const t = setInterval(() => { si=(si+1)%steps.length; $('loadingStep').textContent=steps[si]; }, 2500);
+  const noteTimer1 = setTimeout(() => { $('loadingNote').textContent='初回アクセス時はお時間をいただく場合があります'; $('loadingNote').style.opacity='1'; }, 10000);
+  const noteTimer2 = setTimeout(() => { $('loadingNote').textContent='サーバーを準備中です。もうしばらくお待ちください'; }, 30000);
+
+  const birth = $('inBirth').value;
+  const b64 = await toB64(selectedFile);
+  const realName = $('inRealName').value.trim();
+  const body = {
+    name: $('inName').value,
+    birth: birth,
+    blood: $('inBlood').value,
+    gender: $('inGender').value || '不明',
+    zodiac: getZodiac(birth),
+    kyusei: getKyusei(birth),
+    numerology: getNumerology(birth),
+    birth_hour: $('inHour').value,
+    real_name: realName,
+    image_b64: b64,
+    image_type: selectedFile.type || 'image/jpeg'
+  };
+
+  if(realName){ $('cardSeimei').style.display=''; } else { $('cardSeimei').style.display='none'; }
+
+  try {
+    const res = await fetch('/divine', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body) });
+    if(!res.ok){ const e=await res.json().catch(()=>{}); throw new Error(e?.detail||'サーバーエラーが発生しました'); }
+    const data = await res.json();
+    clearInterval(t); clearTimeout(noteTimer1); clearTimeout(noteTimer2);
+    renderResult(data.result, birth);
+  } catch(e) {
+    clearInterval(t); clearTimeout(noteTimer1); clearTimeout(noteTimer2);
+    $('loadingSection').classList.remove('show');
+    showPanel(1);
+    $('err1').textContent = e.message;
+    $('err1').classList.add('show');
+  }
 });
 
-function renderResult(raw){
+function renderResult(raw, birth){
   $('loadingSection').classList.remove('show');
-  let html=raw;
-  // スコアを抽出
-  const m=raw.match(/SCORES:\{([^}]+)\}/);
+  let html = raw;
+  const m = raw.match(/SCORES:\{([^}]+)\}/);
   if(m){
-    html=raw.replace(/SCORES:\{[^}]+\}\n?/,'');
-    try{
-      const sc=JSON.parse('{'+m[1]+'}');
-      ['総合','恋愛','仕事','金運'].forEach((k,i)=>{
-        const v=sc[k]||70;
-        $('scoreGrid').style.display='grid';
-        setTimeout(()=>{$('sb'+i).style.width=v+'%';$('sv'+i).textContent=v+'/100';},300+i*150);
+    html = raw.replace(/SCORES:\{[^}]+\}\n?/, '');
+    try {
+      const sc = JSON.parse('{'+m[1]+'}');
+      ['総合','恋愛','仕事','金運'].forEach((k,i) => {
+        const v = sc[k] || 70;
+        $('scoreGrid').style.display = 'grid';
+        setTimeout(() => { $('sb'+i).style.width=v+'%'; $('sv'+i).textContent=v+'/100'; }, 300+i*150);
       });
-    }catch(e){}
+    } catch(e){}
   }
-  $('resultName').textContent=($('inName').value||'あなた')+'さんの鑑定結果';
-  $('readingContent').innerHTML=html;
+  $('resultName').textContent = ($('inName').value||'あなた') + 'さんの鑑定結果';
+  $('readingContent').innerHTML = html;
   $('resultSection').classList.add('show');
-  ['dot0','dot1'].forEach(id=>$(id).classList.add('done'));
+  ['dot0','dot1'].forEach(id => $(id).classList.add('done'));
   $('dot2').classList.add('active');
 
-  // シェアリンク設定
-  const shareText='URANAI COSMOSでAI総合占い鑑定をしてもらいました！7つの占術を統合した無料鑑定、ぜひ試してみてください ✨';
-  const shareUrl='https://uranai-cosmos.onrender.com';
-  $('shareX').href='https://x.com/intent/tweet?text='+encodeURIComponent(shareText)+'&url='+encodeURIComponent(shareUrl);
-  $('shareLine').href='https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(shareUrl)+'&text='+encodeURIComponent(shareText);
+  // 結果エリアの猫を星座に合わせる
+  const z = getZodiacData(birth);
+  if(z) $('resultCat').src = `/static/cats/${z.cat}.png`;
+
+  const shareText = 'URANAI COSMOSでAI総合占い鑑定をしてもらいました！7つの占術を統合した無料鑑定、ぜひ試してみてください ✨';
+  const shareUrl = 'https://uranai-cosmos.onrender.com';
+  $('shareX').href = 'https://x.com/intent/tweet?text='+encodeURIComponent(shareText)+'&url='+encodeURIComponent(shareUrl);
+  $('shareLine').href = 'https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(shareUrl)+'&text='+encodeURIComponent(shareText);
 }
 
-$('btnReset').addEventListener('click',()=>{
-  selectedFile=null;fi.value='';$('previewImg').src='';$('previewWrap').classList.remove('show');$('btn12').disabled=true;
-  $('resultSection').classList.remove('show');$('scoreGrid').style.display='none';$('readingContent').innerHTML='';
-  $('inName').value='';$('inBirth').value='';$('inBlood').value='';$('inGender').value='';$('inHour').value='不明';$('inRealName').value='';$('cardSeimei').style.display='none';
-  ['dot0','dot1','dot2'].forEach((id,i)=>{$(id).classList.toggle('active',i===0);$(id).classList.remove('done');});
+$('btnReset').addEventListener('click', () => {
+  selectedFile=null; fi.value=''; $('previewImg').src=''; $('previewWrap').classList.remove('show'); $('btn12').disabled=true;
+  $('resultSection').classList.remove('show'); $('scoreGrid').style.display='none'; $('readingContent').innerHTML='';
+  $('inName').value=''; $('inBirth').value=''; $('inBlood').value=''; $('inGender').value=''; $('inHour').value='不明'; $('inRealName').value='';
+  $('cardSeimei').style.display='none'; $('zodiacTip').style.display='none';
+  ['dot0','dot1','dot2'].forEach((id,i) => { $(id).classList.toggle('active',i===0); $(id).classList.remove('done'); });
   showPanel(0);
 });
 

@@ -16,6 +16,7 @@ import os
 from datetime import date
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import anthropic
@@ -55,6 +56,11 @@ SCORES:{{"総合":XX,"恋愛":XX,"仕事":XX,"金運":XX}}
 
 app = FastAPI(title="URANAI COSMOS")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
+# 静的ファイル（猫キャラ画像など）
+# static/ フォルダが存在する場合のみマウント
+if os.path.isdir("static"):
+    app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.get("/")
