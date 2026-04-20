@@ -5,75 +5,280 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>プライバシーポリシー | URANAI COSMOS</title>
 <meta name="description" content="URANAI COSMOSのプライバシーポリシー。個人情報の取り扱いについて。">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Cinzel:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0c14;--surface:rgba(255,255,255,0.03);--border:rgba(180,160,255,0.15);--accent:#a78bfa;--accent2:#f0c070;--text:#e8e4f0;--muted:rgba(232,228,240,0.45);}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;min-height:100vh;}
-header{text-align:center;padding:40px 24px 24px;border-bottom:1px solid var(--border);}
-.logo{font-family:'Cinzel',serif;font-weight:300;font-size:1.6rem;letter-spacing:0.3em;color:var(--accent);}
-.logo a{color:var(--accent);text-decoration:none;}
-main{max-width:720px;margin:0 auto;padding:48px 20px 80px;}
-h1{font-family:'Shippori Mincho',serif;font-size:1.4rem;color:var(--accent2);letter-spacing:0.15em;text-align:center;margin-bottom:40px;}
-h2{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--accent2);letter-spacing:0.1em;margin:32px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border);}
-p{font-size:0.88rem;line-height:2;color:rgba(232,228,240,0.85);margin-bottom:16px;}
-ul{font-size:0.88rem;line-height:2;color:rgba(232,228,240,0.85);margin:0 0 16px 20px;}
-.back{text-align:center;margin-top:40px;}
-.back a{color:var(--accent);font-size:0.85rem;letter-spacing:0.1em;text-decoration:none;}
-.back a:hover{text-decoration:underline;}
-footer{text-align:center;padding:20px;border-top:1px solid var(--border);font-size:0.65rem;letter-spacing:0.2em;color:rgba(232,228,240,0.18);}
+:root {
+  --bg: #fef6fb;
+  --card: #ffffff;
+  --border: rgba(220, 180, 240, 0.4);
+  --border2: rgba(255, 200, 230, 0.5);
+  --accent: #d07fd8;
+  --accent2: #f5a623;
+  --text: #4a3550;
+  --text2: #7a6080;
+  --muted: #b09abf;
+  --shadow: rgba(200, 150, 220, 0.15);
+  --shadow2: rgba(200, 150, 220, 0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  min-height: 100vh;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(240,200,255,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,200,230,0.2) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+header {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 32px 24px 24px;
+  border-bottom: 2px dotted rgba(208,127,216,0.2);
+  background: linear-gradient(180deg, rgba(255,240,255,0.9) 0%, transparent 100%);
+}
+.logo {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #c96dd8, #f5a623, #7ecbd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.15em;
+}
+.logo a { text-decoration: none; }
+.logo-sub {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.4em;
+  margin-top: 4px;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+.page-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.6rem;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 36px;
+  letter-spacing: 0.08em;
+}
+
+/* セクションカード */
+.priv-card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  padding: 24px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px var(--shadow2);
+}
+.priv-card h2 {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px dotted rgba(208,127,216,0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.priv-card p {
+  font-size: 0.86rem;
+  line-height: 2;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+.priv-card p:last-child { margin-bottom: 0; }
+.priv-card ul {
+  font-size: 0.86rem;
+  line-height: 2;
+  color: var(--text2);
+  margin: 0 0 8px 4px;
+  list-style: none;
+}
+.priv-card ul li::before {
+  content: '🐾 ';
+  font-size: 0.75rem;
+}
+
+.date-note {
+  text-align: right;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.back {
+  text-align: center;
+  margin-top: 32px;
+}
+.back a {
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.back a:hover { color: var(--accent); }
+
+/* CTA mini */
+.cta-mini {
+  text-align: center;
+  margin: 40px 0 24px;
+  padding: 28px;
+  background: linear-gradient(135deg, rgba(255,240,255,0.8), rgba(240,255,255,0.8));
+  border: 2px solid var(--border2);
+  border-radius: 24px;
+}
+.cta-mini img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px;
+  mix-blend-mode: multiply;
+  animation: catBob 3s ease-in-out infinite;
+}
+@keyframes catBob {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+.cta-btn {
+  display: inline-block;
+  padding: 12px 36px;
+  background: linear-gradient(135deg, #d07fd8, #c055c8);
+  color: #fff;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 14px rgba(208,127,216,0.4);
+  transition: all 0.3s;
+}
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(208,127,216,0.5);
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 24px 20px;
+  border-top: 2px dotted rgba(208,127,216,0.2);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+footer a { color: var(--muted); text-decoration: none; margin-right: 16px; }
+footer a:hover { color: var(--accent); }
 </style>
 </head>
 <body>
 <header>
   <div class="logo"><a href="/">URANAI COSMOS</a></div>
+  <div class="logo-sub">星猫占い ── AI 総合鑑定</div>
 </header>
+
 <main>
-  <h1>プライバシーポリシー</h1>
+  <div class="page-title">🔐 プライバシーポリシー</div>
 
-  <h2>1. はじめに</h2>
-  <p>URANAI COSMOS（以下「当サービス」）は、ユーザーのプライバシーを尊重し、個人情報の保護に努めます。本プライバシーポリシーは、当サービスが取得する情報とその取り扱いについて定めたものです。</p>
+  <div class="priv-card">
+    <h2>1. はじめに</h2>
+    <p>URANAI COSMOS（以下「当サービス」）は、ユーザーのプライバシーを尊重し、個人情報の保護に努めます。本プライバシーポリシーは、当サービスが取得する情報とその取り扱いについて定めたものです。</p>
+  </div>
 
-  <h2>2. 取得する情報</h2>
-  <p>当サービスでは、鑑定の提供にあたり以下の情報をお預かりします。</p>
-  <ul>
-    <li>お名前（ニックネーム可）</li>
-    <li>生年月日</li>
-    <li>性別</li>
-    <li>血液型</li>
-    <li>生まれた時間（任意）</li>
-    <li>本名（姓名判断をご希望の場合のみ・任意）</li>
-    <li>手のひらの写真</li>
-  </ul>
+  <div class="priv-card">
+    <h2>2. 取得する情報</h2>
+    <p>当サービスでは、鑑定の提供にあたり以下の情報をお預かりします。</p>
+    <ul>
+      <li>お名前（ニックネーム可）</li>
+      <li>生年月日</li>
+      <li>性別</li>
+      <li>血液型</li>
+      <li>生まれた時間（任意）</li>
+      <li>本名（姓名判断をご希望の場合のみ・任意）</li>
+      <li>手のひらの写真</li>
+    </ul>
+  </div>
 
-  <h2>3. 情報の利用目的</h2>
-  <p>取得した情報は、AI占い鑑定の生成のためにのみ使用します。鑑定に使用した情報はサーバーに保存されず、鑑定完了後に自動的に破棄されます。</p>
+  <div class="priv-card">
+    <h2>3. 情報の利用目的</h2>
+    <p>取得した情報は、AI占い鑑定の生成のためにのみ使用します。鑑定に使用した情報はサーバーに保存されず、鑑定完了後に自動的に破棄されます。</p>
+  </div>
 
-  <h2>4. 第三者への提供</h2>
-  <p>ユーザーの情報を第三者に提供・販売・共有することはありません。ただし、鑑定の生成にあたり、AI処理のためにAnthropic社のAPIにデータを送信します。Anthropic社のプライバシーポリシーについては、同社のウェブサイトをご確認ください。</p>
+  <div class="priv-card">
+    <h2>4. 第三者への提供</h2>
+    <p>ユーザーの情報を第三者に提供・販売・共有することはありません。ただし、鑑定の生成にあたり、AI処理のためにAnthropic社のAPIにデータを送信します。Anthropic社のプライバシーポリシーについては、同社のウェブサイトをご確認ください。</p>
+  </div>
 
-  <h2>5. アクセス解析ツール</h2>
-  <p>当サービスでは、サイトの利用状況を把握するためにGoogle Analyticsを使用しています。Google Analyticsはクッキーを使用してデータを収集しますが、個人を特定する情報は収集しません。詳細はGoogleのプライバシーポリシーをご確認ください。</p>
+  <div class="priv-card">
+    <h2>5. アクセス解析ツール</h2>
+    <p>当サービスでは、サイトの利用状況を把握するためにGoogle Analyticsを使用しています。Google Analyticsはクッキーを使用してデータを収集しますが、個人を特定する情報は収集しません。詳細はGoogleのプライバシーポリシーをご確認ください。</p>
+  </div>
 
-  <h2>6. 広告について</h2>
-  <p>当サービスでは、第三者配信の広告サービス（Google AdSense等）を利用する場合があります。広告配信事業者はクッキーを使用してユーザーの興味に基づいた広告を表示することがあります。</p>
+  <div class="priv-card">
+    <h2>6. 広告について</h2>
+    <p>当サービスでは、第三者配信の広告サービス（Google AdSense等）を利用する場合があります。広告配信事業者はクッキーを使用してユーザーの興味に基づいた広告を表示することがあります。</p>
+  </div>
 
-  <h2>7. クッキーについて</h2>
-  <p>当サービスではクッキーを使用する場合があります。ブラウザの設定によりクッキーを無効にすることが可能ですが、一部のサービスが正常に動作しない場合があります。</p>
+  <div class="priv-card">
+    <h2>7. クッキーについて</h2>
+    <p>当サービスではクッキーを使用する場合があります。ブラウザの設定によりクッキーを無効にすることが可能ですが、一部のサービスが正常に動作しない場合があります。</p>
+  </div>
 
-  <h2>8. 免責事項</h2>
-  <p>当サービスはAIによる娯楽目的の占い鑑定であり、科学的根拠に基づくものではありません。鑑定結果に基づく判断や行動については、ユーザーご自身の責任においてお願いいたします。</p>
+  <div class="priv-card">
+    <h2>8. 免責事項</h2>
+    <p>当サービスはAIによる娯楽目的の占い鑑定であり、科学的根拠に基づくものではありません。鑑定結果に基づく判断や行動については、ユーザーご自身の責任においてお願いいたします。</p>
+  </div>
 
-  <h2>9. ポリシーの変更</h2>
-  <p>本ポリシーは予告なく変更する場合があります。変更後のポリシーは当ページに掲載した時点で効力を持ちます。</p>
+  <div class="priv-card">
+    <h2>9. ポリシーの変更</h2>
+    <p>本ポリシーは予告なく変更する場合があります。変更後のポリシーは当ページに掲載した時点で効力を持ちます。</p>
+  </div>
 
-  <h2>10. お問い合わせ</h2>
-  <p>本ポリシーに関するお問い合わせは、サイト運営者までご連絡ください。</p>
+  <div class="priv-card">
+    <h2>10. お問い合わせ</h2>
+    <p>本ポリシーに関するお問い合わせは、サイト運営者までご連絡ください。</p>
+    <p class="date-note">制定日：2026年4月12日</p>
+  </div>
 
-  <p style="text-align:right;font-size:0.78rem;color:var(--muted);margin-top:32px;">制定日：2026年4月12日</p>
+  <div class="cta-mini">
+    <img src="/static/cats/cat_pisces.png" alt="占いの猫"
+         onerror="this.style.display='none'">
+    <a class="cta-btn" href="/">✨ 無料で鑑定する</a>
+  </div>
 
-  <div class="back"><a href="/">&larr; トップページに戻る</a></div>
+  <div class="back"><a href="/">← トップページに戻る</a></div>
 </main>
-<footer>&copy; URANAI COSMOS</footer>
+
+<footer>
+  <a href="/">無料で鑑定する</a>
+  <a href="/about">7つの占術について</a>
+  <br style="margin-bottom:8px">
+  &copy; URANAI COSMOS
+</footer>
 </body>
 </html>

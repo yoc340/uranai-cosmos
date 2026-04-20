@@ -161,6 +161,7 @@ header {
   display: block;
   margin: 0 auto;
   filter: drop-shadow(0 4px 8px rgba(200,150,220,0.25));
+  mix-blend-mode: multiply;
 }
 .cat-item .cat-name {
   font-size: 0.58rem;
@@ -264,6 +265,7 @@ main {
   margin: 0 auto 12px;
   filter: drop-shadow(0 4px 8px rgba(200,150,220,0.3));
   animation: catBob 3s ease-in-out infinite;
+  mix-blend-mode: multiply;
 }
 
 /* フォーム */
@@ -402,6 +404,7 @@ main {
   transform: translate(-50%, -50%);
   animation: loadingCatBounce 0.8s ease-in-out infinite alternate;
   filter: drop-shadow(0 6px 12px rgba(200,150,220,0.4));
+  mix-blend-mode: multiply;
 }
 @keyframes loadingCatBounce {
   from { transform: translate(-50%, -50%) scale(1); }
@@ -450,6 +453,7 @@ main {
   display: block;
   animation: catBob 2.5s ease-in-out infinite;
   filter: drop-shadow(0 6px 14px rgba(200,150,220,0.35));
+  mix-blend-mode: multiply;
 }
 .result-name {
   font-family: 'Kaisei Decol', serif;
@@ -644,6 +648,7 @@ footer a:hover { color: var(--accent); }
   height: 36px;
   object-fit: contain;
   flex-shrink: 0;
+  mix-blend-mode: multiply;
 }
 .zodiac-tip-name {
   font-weight: 700;
@@ -1096,6 +1101,7 @@ function showPanel(n){
     $(id).classList.toggle('active', i===n);
     $(id).classList.toggle('done', i<n);
   });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 $('btn01').addEventListener('click', () => {
@@ -1141,9 +1147,9 @@ $('btn12').addEventListener('click', async () => {
   $('loadingNote').style.opacity = '0';
   $('loadingNote').textContent = '';
 
-  // ローディング猫をランダムに
-  const cats = ['cat_aries','cat_gemini','cat_leo','cat_sagittarius','cat_aquarius'];
-  $('loadingCat').src = `/static/cats/${cats[Math.floor(Math.random()*cats.length)]}.png`;
+  // ローディング猫を自分の星座に合わせる
+  const zData = getZodiacData($('inBirth').value);
+  if(zData) $('loadingCat').src = `/static/cats/${zData.cat}.png`;
 
   const steps = ['手相を分析中...','占術を統合中...','鑑定結果を生成中...','星座と九星を解読中...','アドバイスを生成中...'];
   let si = 0;

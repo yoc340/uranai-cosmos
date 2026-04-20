@@ -13,106 +13,375 @@
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://uranai-cosmos.onrender.com/about">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Cinzel:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDC742306F"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VDC742306F');</script>
 <style>
-:root{--bg:#0b0c14;--surface:rgba(255,255,255,0.03);--border:rgba(180,160,255,0.15);--accent:#a78bfa;--accent2:#f0c070;--accent3:#7dd3c8;--text:#e8e4f0;--muted:rgba(232,228,240,0.45);}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;min-height:100vh;}
-header{text-align:center;padding:40px 24px 24px;border-bottom:1px solid var(--border);}
-.logo{font-family:'Cinzel',serif;font-weight:300;font-size:1.6rem;letter-spacing:0.3em;color:var(--accent);}
-.logo a{color:var(--accent);text-decoration:none;}
-main{max-width:720px;margin:0 auto;padding:48px 20px 80px;}
-h1{font-family:'Shippori Mincho',serif;font-size:1.4rem;color:var(--accent2);letter-spacing:0.15em;text-align:center;margin-bottom:12px;}
-.intro{font-size:0.85rem;line-height:2;color:var(--muted);text-align:center;margin-bottom:48px;}
-.art-card{border:1px solid var(--border);background:var(--surface);padding:28px 24px;margin-bottom:24px;border-radius:2px;position:relative;}
-.art-icon{font-size:2rem;margin-bottom:12px;display:block;}
-.art-card h2{font-family:'Shippori Mincho',serif;font-size:1.1rem;color:var(--accent2);letter-spacing:0.15em;margin-bottom:12px;}
-.art-card p{font-size:0.85rem;line-height:2;color:rgba(232,228,240,0.8);margin-bottom:8px;}
-.art-tag{display:inline-block;font-size:0.65rem;letter-spacing:0.15em;color:var(--accent);border:1px solid rgba(167,139,250,0.3);padding:3px 10px;border-radius:2px;margin-top:8px;}
-.cta-box{text-align:center;margin:48px 0 24px;padding:32px;border:1px solid var(--border);background:var(--surface);border-radius:2px;}
-.cta-box p{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--accent2);letter-spacing:0.15em;margin-bottom:20px;}
-.cta-btn{display:inline-block;padding:13px 40px;border:1px solid var(--accent);background:transparent;color:var(--accent);font-family:'Shippori Mincho',serif;font-size:0.9rem;letter-spacing:0.35em;text-decoration:none;transition:all 0.35s;border-radius:2px;}
-.cta-btn:hover{background:var(--accent);color:#fff;}
-.back{text-align:center;margin-top:32px;}
-.back a{color:var(--accent);font-size:0.85rem;letter-spacing:0.1em;text-decoration:none;}
-.back a:hover{text-decoration:underline;}
-footer{text-align:center;padding:20px;border-top:1px solid var(--border);font-size:0.65rem;letter-spacing:0.2em;color:rgba(232,228,240,0.18);}
+:root {
+  --bg: #fef6fb;
+  --card: #ffffff;
+  --border: rgba(220, 180, 240, 0.4);
+  --border2: rgba(255, 200, 230, 0.5);
+  --accent: #d07fd8;
+  --accent2: #f5a623;
+  --accent3: #7ecbd8;
+  --accent4: #f78fb3;
+  --text: #4a3550;
+  --text2: #7a6080;
+  --muted: #b09abf;
+  --shadow: rgba(200, 150, 220, 0.15);
+  --shadow2: rgba(200, 150, 220, 0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  min-height: 100vh;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(240,200,255,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,200,230,0.2) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ヘッダー */
+header {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 32px 24px 24px;
+  border-bottom: 2px dotted rgba(208,127,216,0.2);
+  background: linear-gradient(180deg, rgba(255,240,255,0.9) 0%, transparent 100%);
+}
+.logo {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #c96dd8, #f5a623, #7ecbd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.15em;
+}
+.logo a { text-decoration: none; }
+.logo-sub {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.4em;
+  margin-top: 4px;
+}
+
+/* メイン */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+/* ページタイトル */
+.page-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.6rem;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+}
+.page-intro {
+  font-size: 0.85rem;
+  line-height: 2;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* アート カード */
+.art-card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 24px;
+  padding: 28px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px var(--shadow2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.art-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px var(--shadow);
+}
+.art-left {
+  flex-shrink: 0;
+  text-align: center;
+  width: 80px;
+}
+.art-cat {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 6px;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 3px 6px rgba(200,150,220,0.3));
+}
+.art-cat-fallback {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 6px;
+}
+.art-right { flex: 1; min-width: 0; }
+.art-card h2 {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.1rem;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+.art-card p {
+  font-size: 0.84rem;
+  line-height: 1.95;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+.art-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: rgba(208,127,216,0.1);
+  border: 1.5px solid rgba(208,127,216,0.3);
+  padding: 3px 12px;
+  border-radius: 50px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* アクセントカラーバリエーション */
+.art-card:nth-child(1) .art-tag { color: #e05a7a; background: rgba(224,90,122,0.08); border-color: rgba(224,90,122,0.3); }
+.art-card:nth-child(2) .art-tag { color: #f5a623; background: rgba(245,166,35,0.08); border-color: rgba(245,166,35,0.3); }
+.art-card:nth-child(3) .art-tag { color: #7ccc8e; background: rgba(124,204,142,0.08); border-color: rgba(124,204,142,0.3); }
+.art-card:nth-child(4) .art-tag { color: #7ecbd8; background: rgba(126,203,216,0.08); border-color: rgba(126,203,216,0.3); }
+.art-card:nth-child(5) .art-tag { color: #a78bfa; background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.3); }
+.art-card:nth-child(6) .art-tag { color: #f78fb3; background: rgba(247,143,179,0.08); border-color: rgba(247,143,179,0.3); }
+.art-card:nth-child(7) .art-tag { color: #d07fd8; background: rgba(208,127,216,0.08); border-color: rgba(208,127,216,0.3); }
+
+/* CTA */
+.cta-box {
+  text-align: center;
+  margin: 48px 0 24px;
+  padding: 36px 28px;
+  background: linear-gradient(135deg, rgba(255,240,255,0.8), rgba(240,255,255,0.8));
+  border: 2px solid var(--border2);
+  border-radius: 28px;
+  box-shadow: 0 4px 20px var(--shadow2);
+}
+.cta-cat {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin: 0 auto 14px;
+  display: block;
+  mix-blend-mode: multiply;
+  animation: catBob 3s ease-in-out infinite;
+}
+@keyframes catBob {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.cta-box p {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.1rem;
+  color: var(--text);
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 13px 40px;
+  background: linear-gradient(135deg, #d07fd8, #c055c8);
+  color: #fff;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 16px rgba(208,127,216,0.4);
+  transition: all 0.3s;
+}
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(208,127,216,0.5);
+}
+
+.back {
+  text-align: center;
+  margin-top: 28px;
+}
+.back a {
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.back a:hover { color: var(--accent); }
+
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 24px 20px;
+  border-top: 2px dotted rgba(208,127,216,0.2);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+footer a { color: var(--muted); text-decoration: none; margin-right: 16px; }
+footer a:hover { color: var(--accent); }
+
+@media (max-width: 480px) {
+  .art-card { flex-direction: column; gap: 12px; }
+  .art-left { width: 100%; display: flex; align-items: center; gap: 12px; }
+  .art-cat { width: 56px; height: 56px; margin: 0; }
+  .art-card h2 { margin-bottom: 4px; }
+}
 </style>
 </head>
 <body>
 <header>
   <div class="logo"><a href="/">URANAI COSMOS</a></div>
+  <div class="logo-sub">星猫占い ── AI 総合鑑定</div>
 </header>
+
 <main>
-  <h1>7つの占術について</h1>
-  <p class="intro">URANAI COSMOSは、東洋と西洋の占術を組み合わせた<br>AI統合鑑定サービスです。</p>
+  <div class="page-title">🐾 7つの占術について</div>
+  <p class="page-intro">URANAI COSMOSは、東洋と西洋の占術を組み合わせた<br>AI統合鑑定サービスです。</p>
 
   <div class="art-card">
-    <span class="art-icon">&#x1F91A;</span>
-    <h2>手相占い</h2>
-    <p>手のひらに刻まれた線や丘から、その人の性格・才能・運命を読み解く占術です。古代インドに起源を持ち、数千年の歴史があります。生命線・感情線・知能線・運命線の4大主線を中心に、手の形や指の長さなども含めて総合的に判断します。</p>
-    <p>URANAI COSMOSではAIの画像認識技術を活用し、アップロードされた手のひらの写真から手相を分析します。</p>
-    <span class="art-tag">画像認識による分析</span>
+    <div class="art-left">
+      <img class="art-cat" src="/static/cats/cat_cancer.png" alt="手相占いの猫"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="art-cat-fallback" style="display:none">🤚</span>
+    </div>
+    <div class="art-right">
+      <h2>🤚 手相占い</h2>
+      <p>手のひらに刻まれた線や丘から、その人の性格・才能・運命を読み解く占術です。古代インドに起源を持ち、数千年の歴史があります。生命線・感情線・知能線・運命線の4大主線を中心に、手の形や指の長さなども含めて総合的に判断します。</p>
+      <p>URANAI COSMOSではAIの画像認識技術を活用し、アップロードされた手のひらの写真から手相を分析します。</p>
+      <span class="art-tag">📸 画像認識による分析</span>
+    </div>
   </div>
 
   <div class="art-card">
-    <span class="art-icon">&#x2B50;</span>
-    <h2>西洋占星術（星座占い）</h2>
-    <p>生まれた日時の天体配置から運命を読み解く、西洋で最も古い占術の一つです。紀元前2000年頃のメソポタミアに起源を持ちます。12星座（黄道十二宮）は太陽の位置で決まり、それぞれに固有の性格特性や運勢の傾向があるとされます。</p>
-    <p>生年月日から太陽星座を算出し、星の導きに基づいた鑑定を行います。</p>
-    <span class="art-tag">生年月日から自動算出</span>
+    <div class="art-left">
+      <img class="art-cat" src="/static/cats/cat_aries.png" alt="星座占いの猫"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="art-cat-fallback" style="display:none">⭐</span>
+    </div>
+    <div class="art-right">
+      <h2>⭐ 西洋占星術（星座占い）</h2>
+      <p>生まれた日時の天体配置から運命を読み解く、西洋で最も古い占術の一つです。紀元前2000年頃のメソポタミアに起源を持ちます。12星座（黄道十二宮）は太陽の位置で決まり、それぞれに固有の性格特性や運勢の傾向があるとされます。</p>
+      <p>生年月日から太陽星座を算出し、星の導きに基づいた鑑定を行います。</p>
+      <span class="art-tag">🎂 生年月日から自動算出</span>
+    </div>
   </div>
 
   <div class="art-card">
-    <span class="art-icon">&#x1F33F;</span>
-    <h2>九星気学</h2>
-    <p>中国の五行思想と方位学を基盤とした東洋の占術です。生まれた年から九星（一白水星〜九紫火星）を割り出し、その人の本命星に基づいて性格・運勢・相性・方位の吉凶を判断します。日本では江戸時代から広く親しまれてきました。</p>
-    <p>生年月日から本命星を算出し、九星の持つエネルギーに基づいた鑑定を提供します。</p>
-    <span class="art-tag">生年月日から自動算出</span>
+    <div class="art-left">
+      <img class="art-cat" src="/static/cats/cat_taurus.png" alt="九星気学の猫"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="art-cat-fallback" style="display:none">🌿</span>
+    </div>
+    <div class="art-right">
+      <h2>🌿 九星気学</h2>
+      <p>中国の五行思想と方位学を基盤とした東洋の占術です。生まれた年から九星（一白水星〜九紫火星）を割り出し、その人の本命星に基づいて性格・運勢・相性・方位の吉凶を判断します。日本では江戸時代から広く親しまれてきました。</p>
+      <p>生年月日から本命星を算出し、九星の持つエネルギーに基づいた鑑定を提供します。</p>
+      <span class="art-tag">🎂 生年月日から自動算出</span>
+    </div>
   </div>
 
   <div class="art-card">
-    <span class="art-icon">&#x1F300;</span>
-    <h2>四柱推命</h2>
-    <p>生年・月・日・時の四つの柱（天干地支）から運命を読み解く、東洋占術の最高峰とされる占術です。中国で約1000年以上の歴史を持ち、「命理学の王」とも呼ばれます。五行の相生相剋の関係から、人生の流れや適性を精密に分析します。</p>
-    <p>生まれた時間が不明でも、年柱・月柱・日柱の三柱で鑑定が可能です。時間が分かる場合はより精密な四柱での鑑定を行います。</p>
-    <span class="art-tag">生まれた時間で精度UP</span>
+    <div class="art-left">
+      <img class="art-cat" src="/static/cats/cat_capricorn.png" alt="四柱推命の猫"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="art-cat-fallback" style="display:none">🌀</span>
+    </div>
+    <div class="art-right">
+      <h2>🌀 四柱推命</h2>
+      <p>生年・月・日・時の四つの柱（天干地支）から運命を読み解く、東洋占術の最高峰とされる占術です。中国で約1000年以上の歴史を持ち、「命理学の王」とも呼ばれます。五行の相生相剋の関係から、人生の流れや適性を精密に分析します。</p>
+      <p>生まれた時間が不明でも、年柱・月柱・日柱の三柱で鑑定が可能です。時間が分かる場合はより精密な四柱での鑑定を行います。</p>
+      <span class="art-tag">🕐 生まれた時間で精度UP</span>
+    </div>
   </div>
 
   <div class="art-card">
-    <span class="art-icon">&#x1F522;</span>
-    <h2>数秘術</h2>
-    <p>古代ギリシャの数学者ピタゴラスに由来する、数字の神秘的な力を読み解く占術です。生年月日の数字を足し合わせて導き出される「ライフパスナンバー」は、その人の人生の道筋や使命を示すとされます。</p>
-    <p>生年月日から自動的にライフパスナンバーを算出し、数字が持つエネルギーと意味を鑑定に反映します。</p>
-    <span class="art-tag">生年月日から自動算出</span>
+    <div class="art-left">
+      <img class="art-cat" src="/static/cats/cat_aquarius.png" alt="数秘術の猫"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="art-cat-fallback" style="display:none">🔢</span>
+    </div>
+    <div class="art-right">
+      <h2>🔢 数秘術</h2>
+      <p>古代ギリシャの数学者ピタゴラスに由来する、数字の神秘的な力を読み解く占術です。生年月日の数字を足し合わせて導き出される「ライフパスナンバー」は、その人の人生の道筋や使命を示すとされます。</p>
+      <p>生年月日から自動的にライフパスナンバーを算出し、数字が持つエネルギーと意味を鑑定に反映します。</p>
+      <span class="art-tag">🎂 生年月日から自動算出</span>
+    </div>
   </div>
 
   <div class="art-card">
-    <span class="art-icon">&#x1FA78;</span>
-    <h2>血液型占い</h2>
-    <p>A・B・O・AB型の4つの血液型から性格や相性を読み解く、日本で独自に発展した占術です。1970年代から広く親しまれ、日本文化に深く根付いています。科学的根拠については議論がありますが、統計的な傾向やパターンを占いの観点から活用します。</p>
-    <p>選択された血液型に基づき、他の占術と組み合わせた独自の統合鑑定を行います。</p>
-    <span class="art-tag">血液型を選択</span>
+    <div class="art-left">
+      <img class="art-cat" src="/static/cats/cat_scorpio.png" alt="血液型占いの猫"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="art-cat-fallback" style="display:none">🩸</span>
+    </div>
+    <div class="art-right">
+      <h2>🩸 血液型占い</h2>
+      <p>A・B・O・AB型の4つの血液型から性格や相性を読み解く、日本で独自に発展した占術です。1970年代から広く親しまれ、日本文化に深く根付いています。科学的根拠については議論がありますが、統計的な傾向やパターンを占いの観点から活用します。</p>
+      <p>選択された血液型に基づき、他の占術と組み合わせた独自の統合鑑定を行います。</p>
+      <span class="art-tag">🩸 血液型を選択</span>
+    </div>
   </div>
 
   <div class="art-card">
-    <span class="art-icon">&#x1F4DC;</span>
-    <h2>姓名判断</h2>
-    <p>名前の漢字の画数から、天格・人格・地格・外格・総格の五格を算出し、運勢や性格を読み解く東洋の占術です。名前には言霊（ことだま）の力が宿ると考えられており、日本では命名時にも重視されてきた伝統的な占術です。</p>
-    <p>本名を入力された場合にのみ鑑定を行います。ニックネームでの鑑定をご希望の場合は省略されます。</p>
-    <span class="art-tag">本名入力で鑑定（任意）</span>
+    <div class="art-left">
+      <img class="art-cat" src="/static/cats/cat_virgo.png" alt="姓名判断の猫"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="art-cat-fallback" style="display:none">📜</span>
+    </div>
+    <div class="art-right">
+      <h2>📜 姓名判断</h2>
+      <p>名前の漢字の画数から、天格・人格・地格・外格・総格の五格を算出し、運勢や性格を読み解く東洋の占術です。名前には言霊（ことだま）の力が宿ると考えられており、日本では命名時にも重視されてきた伝統的な占術です。</p>
+      <p>本名を入力された場合にのみ鑑定を行います。ニックネームでの鑑定をご希望の場合は省略されます。</p>
+      <span class="art-tag">✍️ 本名入力で鑑定（任意）</span>
+    </div>
   </div>
 
   <div class="cta-box">
+    <img class="cta-cat" src="/static/cats/cat_leo.png" alt="鑑定の猫"
+         onerror="this.style.display='none'">
     <p>7つの占術であなたの運命を読み解く</p>
-    <a class="cta-btn" href="/">無料で鑑定する</a>
+    <a class="cta-btn" href="/">✨ 無料で鑑定する</a>
   </div>
 
-  <div class="back"><a href="/">&larr; トップページに戻る</a></div>
+  <div class="back"><a href="/">← トップページに戻る</a></div>
 </main>
-<footer><a href="/" style="color:rgba(232,228,240,0.3);text-decoration:none;margin-right:16px;">無料で鑑定する</a><a href="/privacy" style="color:rgba(232,228,240,0.3);text-decoration:none;margin-right:16px;">プライバシーポリシー</a><br style="margin-bottom:8px">&copy; URANAI COSMOS &mdash; 本鑑定はAIによる娯楽目的であり、科学的根拠に基づくものではありません</footer>
+
+<footer>
+  <a href="/">無料で鑑定する</a>
+  <a href="/privacy">プライバシーポリシー</a>
+  <br style="margin-bottom:8px">
+  &copy; URANAI COSMOS &mdash; 本鑑定はAIによる娯楽目的であり、科学的根拠に基づくものではありません
+</footer>
 </body>
 </html>
